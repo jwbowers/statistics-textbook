@@ -61,10 +61,10 @@ jobs:
 
       - name: Upload artifact for GitHub Pages
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _book
 
       - name: Deploy to GitHub Pages
         if: github.event_name != 'pull_request'
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
