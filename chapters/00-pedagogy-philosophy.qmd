@@ -67,6 +67,44 @@ This approach has important implications. It means:
 
 - **You will iterate and revise.** Your first attempt at an analysis will rarely be your best. Learning to examine, critique, and improve your own work is essential.
 
+# The Revolution in Statistics Education: Computation Changes Everything
+
+The pedagogical approach of this book is not idiosyncratic. It is part of a broader transformation in how statistics is taught, led by statisticians and educators who recognized that computers have fundamentally changed what is pedagogically optimal.
+
+## Cobb's Ptolemaic Curriculum
+
+In a justly influential 2007 article, George Cobb [-@cobb2007introductory] posed a provocative question: Is the introductory statistics course "a Ptolemaic curriculum"? His argument was that the standard statistics curriculum, despite many improvements, remains "an unwitting prisoner of history."
+
+The metaphor is powerful. Ptolemy's geocentric model of astronomy worked—it could predict planetary positions. But it required increasingly complex corrections ("epicycles") to account for observations. The system was complicated not because reality was complicated, but because the foundational model was wrong. When Copernicus proposed that the Earth orbits the Sun, not vice versa, astronomy became conceptually simpler and more elegant.
+
+Cobb argued that traditional statistics pedagogy faces the same problem. We teach "the technical machinery of numerical approximations based on the normal distribution"—the *t*-distribution, pooled variance estimates, corrections for unequal variances, approximations for degrees of freedom, and on and on. Each new situation requires another epicycle, "another adjustment [that] takes students' attention away from more basic ideas such as the fit between model and reality" [@cobb2007introductory].
+
+But this machinery "was once necessary because the conceptually simpler alternative based on permutations was computationally beyond our reach." Before computers, statisticians had no choice but to develop mathematical approximations that could be calculated by hand or looked up in tables. The normal distribution machinery wasn't chosen because it was pedagogically optimal or conceptually clearest—it was chosen because it was computationally feasible.
+
+**Now that we have computers, we can teach statistics in the order that makes conceptual sense**, not the order dictated by what humans can calculate without machines. Permutation tests and randomization-based inference are conceptually more direct—they "make a direct connection between data production and the logic of inference that deserves to be at the core of every introductory course" [@cobb2007introductory]. Simulation-based approaches let students see sampling distributions rather than imagine them, understand the bootstrap rather than memorize formulas for standard errors.
+
+This is not "dumbing down" statistics—it is teaching the logic clearly rather than obscuring it with historical artifacts. To continue teaching the Ptolemaic curriculum when a Copernican alternative exists is, in a real sense, a form of lying: suggesting that the complex machinery is necessary when it is not, and hiding the more direct logical path because of computational constraints that no longer exist.
+
+## Kaplan's Modeling-First Approach
+
+Daniel Kaplan, in his textbook *Statistical Modeling: A Fresh Approach* [-@kaplan2012ism] and subsequent work, developed a coherent alternative curriculum organized around three key insights:
+
+**First, start with models, not with descriptive statistics.** Traditional courses begin with means and standard deviations, gradually build to simple linear regression, and only near the end (if at all) consider models with multiple predictors. But this sequence is historically contingent, not pedagogically optimal. Real applications almost always involve multiple variables. By starting with modeling from day one, students immediately engage with the complexity of actual data analysis rather than spending weeks on oversimplified cases that must later be unlearned.
+
+**Second, organize inference around "Randomize, Repeat, Reject."** This algorithmic approach—randomize the assignment or resample the data, repeat many times to build a reference distribution, reject the null hypothesis if your observed result is extreme—is conceptually more accessible than the traditional route through probability theory, sampling distributions, and the Central Limit Theorem. Kaplan notes that this approach, building on Cobb's work, lets students understand the *logic* of inference before getting bogged down in mathematical machinery.
+
+**Third, embrace computation as the primary mode of statistical work.** Kaplan famously stated: "The purpose of computing is insight, not numbers." Computation is not a concession to mathematically weaker students; it is how modern statistics actually works. By teaching R from the beginning (Kaplan was among the first to teach introductory statistics entirely with R, starting in 1997), students learn to use professional tools, making them more capable, not less, than students who learn to manipulate formulas by hand.
+
+These principles directly inform this textbook. You will work with models and multiple variables from early on. You will learn inference through simulation and randomization before (and sometimes instead of) mathematical approximations. You will use R not as an afterthought but as your primary tool for statistical thinking.
+
+## The MOSAIC Project and Educational Reform
+
+Kaplan's work is part of the broader Project MOSAIC (Models, Statistics, and Computation), a collaborative effort to modernize statistics education. The project explicitly recognizes that computation changes what is pedagogically possible and optimal. The `mosaic` package for R that you will use in this book emerged from this effort to provide tools that make sophisticated analysis accessible and readable.
+
+This educational reform movement aligns with the principles articulated earlier: truth-telling (teach what is conceptually clearest, not what is computationally convenient with 1950s technology), empowerment (give students the actual tools used in professional practice), and discovery-based learning (let students explore through simulation rather than memorize formulas).
+
+The choice to teach statistics computationally is thus both pedagogical and ethical. It is pedagogical because simulation builds intuition more effectively than derivation for most students. It is ethical because it democratizes access to statistical thinking, removing artificial barriers while preserving—indeed enhancing—intellectual rigor.
+
 # Scaffolding and Support
 
 Emphasizing discovery and autonomy does not mean abandoning students to struggle alone. Lev Vygotsky's concept of "scaffolding" is crucial: learning happens most effectively when students work at the edge of their current capabilities, supported by tools, structure, and guidance that enable them to accomplish things they could not yet do independently.

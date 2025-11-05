@@ -90,6 +90,48 @@ This document explains the educational philosophers and theorists referenced in 
   - Links to jazz improvisation metaphor (theory enabling rather than constraining creativity)
   - Ethnomethodological approach - studying how competence is actually achieved
 
+## Statistics Education Reformers
+
+### George W. Cobb (1947-2020)
+- **Key works**:
+  - "The Introductory Statistics Course: A Ptolemaic Curriculum?" (2007)
+  - "Mere Renovation is Too Little Too Late: We Need to Rethink Our Undergraduate Curriculum from the Ground Up" (2015)
+- **Core concepts**:
+  - Ptolemaic curriculum metaphor - traditional statistics teaching as "prisoner of history"
+  - Epicycles - unnecessary complexity inherited from pre-computational era
+  - Permutation and randomization-based inference as conceptually simpler alternative
+  - "Randomize, Repeat, Reject" framework
+- **Why essential for your book**:
+  - Provides discipline-specific validation for computational approach
+  - Argues that teaching normal distribution machinery first is historically contingent, not pedagogically optimal
+  - Makes explicit the ethical dimension: continuing to teach the Ptolemaic curriculum is a form of lying
+  - Shows that simulation/resampling is conceptually clearer, not "dumbed down"
+  - Influential paper that inspired statistics education reform movement
+- **His argument**: "What we teach is largely the technical machinery of numerical approximations based on the normal distribution, machinery that was once necessary because the conceptually simpler alternative based on permutations was computationally beyond our reach." Now that we have computers, we should teach in the order that makes conceptual sense.
+
+### Daniel T. Kaplan (1950-)
+- **Key works**:
+  - *Statistical Modeling: A Fresh Approach* (2012)
+  - "Teaching Stats for Data Science" (2018)
+  - Creator of Project MOSAIC and `mosaic` R package
+- **Core concepts**:
+  - Modeling-first approach (start with models, not descriptive statistics)
+  - Multivariate from day one (real applications always involve multiple variables)
+  - "The purpose of computing is insight, not numbers"
+  - Computation as primary mode of statistical work, not afterthought
+  - "Randomize, Repeat, Reject" algorithmic framework (building on Cobb)
+- **Why essential for your book**:
+  - Pioneer of teaching introductory statistics with R (started 1997)
+  - Developed coherent alternative curriculum grounded in computation
+  - Project MOSAIC provides practical tools (mosaic package) for implementation
+  - Argues for starting with complexity rather than building up from oversimplified cases
+  - Explicitly connects to data science practice
+  - Provides model of how to organize computational statistics pedagogy
+- **His argument**: Traditional curriculum is pedagogically suboptimal because it's organized around what was computationally feasible by hand, not around what is conceptually clearest. Modeling with multiple variables and simulation-based inference should be taught from the beginning.
+
+### The Collaboration
+Cobb and Kaplan are part of the same statistics education reform movement. Kaplan's "Randomize, Repeat, Reject" builds explicitly on Cobb's work. Both are involved in Project MOSAIC (Models, Statistics, and Computation), which provides tools and curriculum for computational statistics teaching. Their work provides discipline-specific grounding for the general educational principles from Freire, Dewey, etc.
+
 ## Other Potentially Relevant Thinkers (not yet in chapter)
 
 ### Ivan Illich (1926-2002)
