@@ -65,6 +65,8 @@ LECTURE → MEMORIZE → APPLY → TEST
 
 ## Three Organizing Principles
 
+The following organizational framework is borrowed from Richard Berk's [-@berk04, Chapter 11] insightful final chapter on "What to Do":
+
 ### 1. Three Cheers for Description
 
 Before we can infer about the unseen, we must describe the seen. What makes a good description? How do we summarize location? Spread? Relationships? When is a line a good summary? When is it misleading?

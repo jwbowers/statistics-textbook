@@ -14,6 +14,7 @@ book:
       chapters:
         - chapters/00-introduction.qmd
         - chapters/00-how-to-use.qmd
+        - chapters/00-pedagogy-philosophy.qmd
 
     - part: "Part II: Three Cheers for Description"
       chapters:
