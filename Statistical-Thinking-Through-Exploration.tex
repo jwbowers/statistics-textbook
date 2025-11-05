@@ -1,0 +1,2540 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+  letterpaper,
+  oneside,
+  openany]{book}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{3}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},fontsize=\small}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Statistical Thinking Through Exploration},
+  pdfauthor={Jake Bowers},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Statistical Thinking Through Exploration}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A Discovery-Based Approach to Applied Statistics}
+\author{Jake Bowers}
+\date{2025-11-04}
+\begin{document}
+\frontmatter
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\setstretch{1.2}
+\mainmatter
+\bookmarksetup{startatroot}
+
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\markboth{Preface}{Preface}
+
+\begin{quote}
+``The only way to learn mathematics is to do mathematics.'' --- Paul
+Halmos
+\end{quote}
+
+\begin{quote}
+``Education is not the filling of a pail, but the lighting of a fire.''
+--- William Butler Yeats
+\end{quote}
+
+\section*{About This Book}\label{about-this-book}
+\addcontentsline{toc}{section}{About This Book}
+
+\markright{About This Book}
+
+This is not a traditional statistics textbook. You will not find
+theorem-proof-example sequences here. Instead, you will find
+\textbf{explorations}---challenging, data-rich scenarios that invite you
+to discover statistical concepts through active engagement, simulation,
+and critical thinking.
+
+This book emerged from over a decade of teaching graduate students in
+political science and other social sciences using a \textbf{flipped
+classroom} approach. Rather than lecturing first and then assigning
+problems, I ask students to \emph{explore} topics before class---guided
+by readings, data, code, and questions---and then come to class full of
+questions to discuss.
+
+The approach draws inspiration from the pedagogical philosophies of:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Paulo Freire}, who emphasized dialogue and critical
+  consciousness over the ``banking model'' of education
+\item
+  \textbf{Maria Montessori}, who championed hands-on, self-directed
+  learning
+\item
+  \textbf{John Dewey}, who advocated for learning by doing and
+  reflective inquiry
+\end{itemize}
+
+But it is also grounded in the deep statistical wisdom of Paul
+Rosenbaum, David Cox, Andrew Gelman, and others who teach us that
+statistics is not about memorizing procedures, but about
+\textbf{reasoning under uncertainty}.
+
+\section*{Who This Book Is For}\label{who-this-book-is-for}
+\addcontentsline{toc}{section}{Who This Book Is For}
+
+\markright{Who This Book Is For}
+
+This book is designed for graduate students and advanced undergraduates
+in the social sciences who want to:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Understand} statistics deeply, not just mechanically apply
+  procedures
+\item
+  \textbf{Evaluate} their own statistical choices and those of others
+\item
+  \textbf{Justify} their analytical decisions to skeptical audiences
+\item
+  \textbf{Learn} how to keep learning statistics throughout their
+  careers
+\end{itemize}
+
+You should have:
+
+\begin{itemize}
+\tightlist
+\item
+  Curiosity and persistence
+\item
+  Willingness to make mistakes and learn from them
+\item
+  Basic familiarity with high school mathematics
+\item
+  Access to R (the statistical programming language)
+\end{itemize}
+
+You do NOT need:
+
+\begin{itemize}
+\tightlist
+\item
+  Prior experience with statistics (though it helps)
+\item
+  Advanced mathematics (calculus and linear algebra are explained as
+  needed)
+\item
+  Programming expertise (we learn R as we go)
+\end{itemize}
+
+\section*{How This Book Works}\label{how-this-book-works}
+\addcontentsline{toc}{section}{How This Book Works}
+
+\markright{How This Book Works}
+
+Each chapter typically includes:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{A Scenario}: Often involving fictional characters facing real
+  statistical challenges
+\item
+  \textbf{Explorations}: Code, data, and questions for you to work
+  through
+\item
+  \textbf{Key Concepts}: Statistical ideas emerging from the exploration
+\item
+  \textbf{Discussion Questions}: To deepen understanding and connect to
+  broader issues
+\item
+  \textbf{Readings}: Recommended sources for multiple perspectives
+\item
+  \textbf{Extensions}: Optional advanced topics and connections
+\end{enumerate}
+
+The pedagogical sequence is:
+
+\begin{verbatim}
+EXPLORE → QUESTION → DISCUSS → UNDERSTAND → APPLY → EVALUATE
+\end{verbatim}
+
+Not:
+
+\begin{verbatim}
+LECTURE → MEMORIZE → APPLY → TEST
+\end{verbatim}
+
+\section*{Three Organizing
+Principles}\label{three-organizing-principles}
+\addcontentsline{toc}{section}{Three Organizing Principles}
+
+\markright{Three Organizing Principles}
+
+\subsection*{1. Three Cheers for
+Description}\label{three-cheers-for-description}
+\addcontentsline{toc}{subsection}{1. Three Cheers for Description}
+
+Before we can infer about the unseen, we must describe the seen. What
+makes a good description? How do we summarize location? Spread?
+Relationships? When is a line a good summary? When is it misleading?
+
+\subsection*{2. Two Cheers for Statistical
+Inference}\label{two-cheers-for-statistical-inference}
+\addcontentsline{toc}{subsection}{2. Two Cheers for Statistical
+Inference}
+
+Statistical inference lets us reason about what we cannot observe:
+counterfactual causal effects, population parameters, data-generating
+processes. But inference requires \textbf{justification}. Why should we
+believe this p-value? This confidence interval? This standard error?
+
+\subsection*{3. One Cheer for Causal
+Inference}\label{one-cheer-for-causal-inference}
+\addcontentsline{toc}{subsection}{3. One Cheer for Causal Inference}
+
+Causal inference is powerful but perilous. Randomization helps, but most
+research is observational. How do we ``control for'' confounders? What
+does ``controlling for'' even mean? When is adjustment adequate?
+
+\section*{The Journey Ahead}\label{the-journey-ahead}
+\addcontentsline{toc}{section}{The Journey Ahead}
+
+\markright{The Journey Ahead}
+
+We begin with \textbf{description}---learning to summarize data in one
+dimension, then two, then many. We practice fitting lines, smoothing
+curves, and visualizing relationships.
+
+Then we tackle \textbf{statistical inference}---learning what it means
+to estimate an unobserved quantity, test a hypothesis, or construct a
+confidence interval. We distinguish inference to counterfactuals,
+populations, and data models.
+
+Next comes \textbf{adjustment}---the crucial but often misunderstood
+practice of ``controlling for'' confounding variables. We explore both
+parametric (regression-based) and non-parametric (stratification-based)
+approaches.
+
+Finally, we connect \textbf{design-based} inference (randomization,
+sampling) to \textbf{model-based} inference (maximum likelihood,
+Bayesian methods) and large-sample theory.
+
+Throughout, we emphasize \textbf{simulation} as a tool for
+understanding. If you can simulate it, you can understand it. If you can
+assess its operating characteristics, you can judge whether to use it.
+
+\section*{Acknowledgments}\label{acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+\markright{Acknowledgments}
+
+This book would not exist without:
+
+\begin{itemize}
+\tightlist
+\item
+  The hundreds of students who explored these materials, asked hard
+  questions, and helped refine the pedagogy
+\item
+  The methods preceptors who ran sections, held office hours, and
+  provided invaluable feedback
+\item
+  The scholars whose work I cite liberally throughout---especially Paul
+  Rosenbaum, whose writing shows that statistics can be both rigorous
+  and beautiful
+\item
+  My colleagues who shared data, ideas, and encouragement
+\end{itemize}
+
+\section*{A Note on Software and
+Reproducibility}\label{a-note-on-software-and-reproducibility}
+\addcontentsline{toc}{section}{A Note on Software and Reproducibility}
+
+\markright{A Note on Software and Reproducibility}
+
+All code in this book uses R and is designed to be reproducible. You can
+download the source code, data, and rendered versions at:
+
+\textbf{https://github.com/{[}your-repo{]}/statistics-textbook}
+
+I encourage you to:
+
+\begin{itemize}
+\tightlist
+\item
+  Run every line of code yourself
+\item
+  Modify the code to see what changes
+\item
+  Simulate your own examples
+\item
+  Share your explorations with others
+\end{itemize}
+
+Statistics is not a spectator sport. Let's begin.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Jake Bowers Urbana, Illinois \texttt{r\ format(Sys.Date(),\ "\%B\ \%Y")}
+
+\part{Part I: The Pedagogy of Statistical Discovery}
+
+\chapter{Introduction: Why Learn Statistics This Way?}\label{sec-intro}
+
+\section{The Problem with Traditional Statistics
+Teaching}\label{the-problem-with-traditional-statistics-teaching}
+
+Let me tell you a story that might sound familiar.
+
+A graduate student---let's call her Maria---takes a required statistics
+course. She attends lectures where the professor writes Greek letters on
+the board and derives formulas. She memorizes that β₁ is the slope, that
+p \textless{} 0.05 means ``statistically significant,'' that R² measures
+``goodness of fit.'' She completes problem sets by plugging numbers into
+formulas. She passes the exams.
+
+Two years later, Maria is analyzing data for her dissertation. She knows
+she should ``control for'' confounding variables, but she's not sure
+what that actually \emph{does}. She runs a regression and gets p = 0.04.
+Is that good? Should she add more control variables? She tries adding
+them and now p = 0.09. Should she keep them? Remove them? She's heard
+she should ``check assumptions'' but doesn't really know how to assess
+whether violations matter for \emph{her} specific analysis.
+
+Maria knows \emph{what} to do (mechanically) but not \emph{why} to do
+it, \emph{when} to do it, or \emph{how to evaluate} whether what she did
+makes sense.
+
+\textbf{This book aims to solve Maria's problem.}
+
+\section{A Different Approach: Discovery Before
+Theory}\label{a-different-approach-discovery-before-theory}
+
+\subsection{The Traditional Sequence}\label{the-traditional-sequence}
+
+Most statistics courses follow this pattern:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Theorem}: Here is a mathematical result
+\item
+  \textbf{Proof}: Here is why it's true
+\item
+  \textbf{Example}: Here is how to apply it
+\item
+  \textbf{Exercise}: Now you try
+\end{enumerate}
+
+This works well for mathematics courses training future mathematicians.
+But most students of statistics are not becoming mathematical
+statisticians. They're becoming empirical researchers who need to:
+
+\begin{itemize}
+\tightlist
+\item
+  Choose appropriate methods for messy real-world data
+\item
+  Justify their choices to skeptical audiences
+\item
+  Evaluate whether their methods actually work in their context
+\item
+  Keep learning as new methods emerge
+\end{itemize}
+
+\subsection{The Exploration-Based
+Sequence}\label{the-exploration-based-sequence}
+
+This book follows a different pattern:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Challenge}: Here is a real scenario with data and questions
+\item
+  \textbf{Exploration}: Investigate using code, visualization,
+  simulation
+\item
+  \textbf{Discovery}: What patterns emerge? What works? What doesn't?
+\item
+  \textbf{Discussion}: Why does it work (or not)? When should we use it?
+\item
+  \textbf{Formalization}: Here's the theory that explains what we
+  discovered
+\item
+  \textbf{Evaluation}: How do we know if it's working for our specific
+  case?
+\end{enumerate}
+
+For example, instead of:
+
+\begin{quote}
+\textbf{Definition}: The mean is Σxᵢ/n. \textbf{Theorem}: The sample
+mean is an unbiased estimator of the population mean. \textbf{Example}:
+Calculate the mean of these five numbers.
+\end{quote}
+
+We ask:
+
+\begin{quote}
+Your friend at the UN wants to summarize civic engagement in the UK
+using a ``single number'' for hours spent helping others. What number
+should she use? Why? How do you even decide what makes a number a
+``good'' summary?
+\end{quote}
+
+Then we explore: What if we use different summaries (mean, median,
+trimmed mean, M-estimator)? How do they differ? When does one mislead?
+We simulate data with outliers and see what happens. We discover that
+the mean is pulled by extreme values while the median is resistant. We
+learn that ``best'' depends on our purpose.
+
+\textbf{Only then} do we formalize: ``Here's why the median is the value
+that minimizes the sum of absolute deviations\ldots{}''
+
+\section{The Pedagogical Philosophy}\label{the-pedagogical-philosophy}
+
+This approach rests on several principles:
+
+\subsection{1. Understanding Requires
+Doing}\label{understanding-requires-doing}
+
+You cannot understand statistics by watching someone else do statistics,
+any more than you can learn to cook by watching cooking shows. You must:
+
+\begin{itemize}
+\tightlist
+\item
+  Write code (and debug it when it fails)
+\item
+  Manipulate data (and discover its quirks)
+\item
+  Make plots (and refine them until they communicate clearly)
+\item
+  Run simulations (and interpret the results)
+\end{itemize}
+
+As the mathematician Paul Halmos wrote: ``The only way to learn
+mathematics is to do mathematics.''
+
+\subsection{2. Questions Drive Learning}\label{questions-drive-learning}
+
+In the banking model of education (Freire's term), the teacher deposits
+knowledge into passive students. But learning is not passive
+reception---it's active construction.
+
+You learn most when you:
+
+\begin{itemize}
+\tightlist
+\item
+  Ask your own questions (``Why did this fail?'')
+\item
+  Confront genuine puzzles (``These two methods give different
+  answers---which should I trust?'')
+\item
+  Face authentic problems (``How do I know if I've adjusted enough for
+  confounders?'')
+\end{itemize}
+
+This book provides scenarios and explorations designed to raise good
+questions. Class discussions (or study group discussions) then deepen
+understanding.
+
+\subsection{3. Judgment Requires
+Evaluation}\label{judgment-requires-evaluation}
+
+Statistics is not a cookbook. You cannot just follow recipes blindly.
+Every analysis requires dozens of decisions:
+
+\begin{itemize}
+\tightlist
+\item
+  Which summary statistic?
+\item
+  Which model?
+\item
+  Which covariates to adjust for?
+\item
+  Which standard errors?
+\item
+  Which diagnostic plots?
+\end{itemize}
+
+Traditional courses teach you \emph{what} statisticians typically do.
+This course teaches you \emph{how to evaluate} what you should do in
+your specific context.
+
+The key tool: \textbf{simulation}.
+
+If you can simulate data where you \emph{know} the truth, you can assess
+whether your method recovers that truth. You can check:
+
+\begin{itemize}
+\tightlist
+\item
+  Is my estimator unbiased?
+\item
+  Does my test have the false positive rate it claims?
+\item
+  Does my confidence interval have nominal coverage?
+\end{itemize}
+
+\subsection{4. Skills and Concepts Are
+Inseparable}\label{skills-and-concepts-are-inseparable}
+
+Many statistics PhD programs teach concepts through mathematical proof.
+Students learn to manipulate integrals and prove theorems. The skills
+are mathematical, and the concepts emerge from the mathematics.
+
+But most social scientists don't have (or need) advanced calculus. So
+how do we make concepts concrete?
+
+\textbf{Answer}: Through computational skills.
+
+R is a \emph{language for expressing statistical ideas}. When you write
+code to:
+
+\begin{itemize}
+\tightlist
+\item
+  Calculate a mean by hand (\texttt{sum(x)/length(x)})
+\item
+  Generate a randomization distribution
+  (\texttt{replicate(1000,\ mean(sample(y))})
+\item
+  Simulate an estimator's bias
+  (\texttt{mean(estimates)\ -\ true\_value})
+\end{itemize}
+
+You are not just ``using software''---you are \emph{thinking
+statistically} using a different language than mathematics.
+
+Code makes concepts concrete in the same way that mathematical proofs
+do, but it's often more accessible and more directly connected to data
+analysis practice.
+
+\section{What This Means for How You'll Use This
+Book}\label{what-this-means-for-how-youll-use-this-book}
+
+\subsection{Before Class (or Before Moving to the Next
+Chapter)}\label{before-class-or-before-moving-to-the-next-chapter}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Read the scenario} at the start of each chapter
+\item
+  \textbf{Work through the exploration} code
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Run every line yourself
+  \item
+    When you don't understand something, try changing it to see what
+    happens
+  \item
+    When code breaks, figure out why (this is where deep learning
+    happens)
+  \end{itemize}
+\item
+  \textbf{Answer the questions} posed in the exploration
+\item
+  \textbf{Write down your own questions} that arise
+\item
+  \textbf{Skim the recommended readings} (different perspectives help)
+\end{enumerate}
+
+\subsection{During Class (or Discussion
+Group)}\label{during-class-or-discussion-group}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Share your questions} from the exploration
+\item
+  \textbf{Discuss alternative approaches} people tried
+\item
+  \textbf{Debate conceptual puzzles} (``What does `controlling for'
+  actually do?'')
+\item
+  \textbf{Formalize insights} with guidance from instructor/readings
+\item
+  \textbf{Connect to broader themes} in statistics and research design
+\end{enumerate}
+
+\subsection{After Class}\label{after-class}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Revisit the exploration} with new understanding
+\item
+  \textbf{Extend it} to your own research questions/data
+\item
+  \textbf{Practice} the core skills (simulation, visualization,
+  evaluation)
+\item
+  \textbf{Read more deeply} on topics that intrigued you
+\end{enumerate}
+
+\section{Three Organizing Themes}\label{three-organizing-themes}
+
+Throughout the book, three themes recur:
+
+\subsection{Theme 1: Description, Inference, and
+Causation}\label{theme-1-description-inference-and-causation}
+
+Statistics serves three purposes:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Description}: Summarizing what we observe
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``The mean income is \$50,000''
+  \item
+    ``Education and income are positively correlated''
+  \end{itemize}
+\item
+  \textbf{Inference}: Learning about what we don't observe
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``The population mean is probably between \$45,000 and \$55,000''
+    (sampling)
+  \item
+    ``The treatment effect is probably positive'' (experiments)
+  \end{itemize}
+\item
+  \textbf{Causal Inference}: Claiming X causes Y
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``Job training increases earnings''
+  \item
+    ``Campaign ads change vote choice''
+  \end{itemize}
+\end{enumerate}
+
+Each requires different justifications. We'll be very careful about
+distinguishing them.
+
+\subsection{Theme 2: Design-Based vs.~Model-Based
+Inference}\label{theme-2-design-based-vs.-model-based-inference}
+
+There are two main modes of statistical inference:
+
+\textbf{Design-based}: Inference justified by randomization
+(experiments) or sampling design (surveys)
+
+\begin{itemize}
+\tightlist
+\item
+  Repeat the random assignment → randomization distribution → p-values,
+  CIs
+\item
+  Repeat the random sampling → sampling distribution → standard errors
+\end{itemize}
+
+\textbf{Model-based}: Inference justified by modeling the
+data-generating process
+
+\begin{itemize}
+\tightlist
+\item
+  Assume Y \textasciitilde{} Normal(μ, σ²) → likelihood function → MLEs,
+  Wald tests
+\item
+  Assume Y\textbar X \textasciitilde{} Bernoulli(logit⁻¹(Xβ)) → logistic
+  regression
+\end{itemize}
+
+We start with design-based inference because it's conceptually clearer,
+then connect to model-based approaches.
+
+\subsection{Theme 3: Operating Characteristics and
+Diagnostics}\label{theme-3-operating-characteristics-and-diagnostics}
+
+How do you know if a statistical procedure is good?
+
+\textbf{Answer}: Check its \textbf{operating characteristics}
+
+\begin{itemize}
+\tightlist
+\item
+  Estimators: bias, precision (variance/MSE), consistency
+\item
+  Tests: false positive rate (size), power
+\item
+  Confidence intervals: coverage
+\end{itemize}
+
+How do you check operating characteristics?
+
+\textbf{Answer}: \textbf{Simulation} (when you control the
+data-generating process) or \textbf{diagnostics} (with real data)
+
+This theme appears in every chapter. We constantly ask: ``How would I
+know if this method is working well for my specific analysis?''
+
+\section{A Roadmap of the Book}\label{a-roadmap-of-the-book}
+
+\textbf{Part I}: We describe data---first in one dimension (What's a
+good summary of location? Of spread?), then in two dimensions (How do we
+fit lines? Curves? When should we?).
+
+\textbf{Part II}: We introduce statistical inference through estimation
+and testing, distinguishing inference to counterfactuals (causal
+inference) from inference to populations (sampling) from inference to
+models (MLE).
+
+\textbf{Part III}: We tackle the crucial problem of
+adjustment---``controlling for'' confounders. We see that
+regression-based adjustment is problematic and explore
+stratification-based alternatives.
+
+\textbf{Part IV}: We connect design-based inference to large-sample
+theory (CLT, standard errors, Normal approximations).
+
+\textbf{Part V}: We introduce model-based inference (maximum likelihood)
+and generalized linear models (logit, probit, Poisson).
+
+\section{What You'll Be Able to Do}\label{what-youll-be-able-to-do}
+
+By the end of this book, you will be able to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Explain} in your own words what a p-value means, what makes an
+  estimator unbiased, what ``controlling for'' does
+\item
+  \textbf{Choose} appropriate methods for your data and research
+  question, and justify your choices
+\item
+  \textbf{Evaluate} whether your methods are working (via simulation,
+  diagnostics, sensitivity analysis)
+\item
+  \textbf{Communicate} your statistical reasoning to both specialists
+  and non-specialists
+\item
+  \textbf{Keep learning} statistics throughout your career, as new
+  methods emerge
+\end{enumerate}
+
+Most importantly, when someone asks ``Why did you do it that way?'', you
+won't just say ``That's what everyone does'' or ``The software did it
+automatically.''
+
+You'll be able to explain:
+
+\begin{itemize}
+\tightlist
+\item
+  What you were trying to accomplish
+\item
+  Why your approach makes sense for your context
+\item
+  How you know it's working
+\item
+  What assumptions you're making and why they're reasonable (or what
+  happens if they're not)
+\end{itemize}
+
+\textbf{That's statistical thinking.}
+
+Let's begin.
+
+\section{How to Get Help When You're
+Stuck}\label{how-to-get-help-when-youre-stuck}
+
+Learning statistics this way means you'll get stuck. Often. That's not a
+bug, it's a feature. Getting un-stuck is where deep learning happens.
+
+When you're stuck on \textbf{code}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Read the error message carefully (they're often informative)
+\item
+  Search the web for the error message
+\item
+  Use \texttt{?function\_name} to read help files
+\item
+  Try a minimal example to isolate the problem
+\item
+  Ask an AI assistant (but make sure you understand the answer)
+\end{enumerate}
+
+When you're stuck on \textbf{concepts}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Try explaining it out loud (or in writing) to yourself
+\item
+  Draw a picture or diagram
+\item
+  Simulate a simple example where you know the answer
+\item
+  Read alternative explanations (different textbooks, blog posts,
+  papers)
+\item
+  Discuss with classmates or study group
+\item
+  Ask your instructor/TA, coming with specific questions
+\end{enumerate}
+
+When you're stuck on \textbf{why} a method works or whether to use it:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Simulate data where you know the truth
+\item
+  Check operating characteristics
+\item
+  Read about the method's assumptions and derivation
+\item
+  Look for papers that evaluate the method via simulation
+\item
+  Ask: ``What problem is this method trying to solve? Does that match my
+  problem?''
+\end{enumerate}
+
+\textbf{The key}: Don't give up too quickly, but also don't spin your
+wheels for hours. If you've been stuck for 30 minutes, seek help.
+
+\section{A Note on Notation and
+Terminology}\label{a-note-on-notation-and-terminology}
+
+Different textbooks (and different fields) use different notation and
+terminology. This can be confusing.
+
+For example, ``standard error'' sometimes means:
+
+\begin{itemize}
+\tightlist
+\item
+  The standard deviation of an estimator's sampling distribution (what
+  we usually mean)
+\item
+  The standard deviation of the residuals in a regression (what Excel
+  sometimes reports)
+\end{itemize}
+
+And β₁ might mean:
+
+\begin{itemize}
+\tightlist
+\item
+  The true (population) slope parameter
+\item
+  The estimated slope from your data
+\item
+  The coefficient on the first predictor variable
+\end{itemize}
+
+We'll try to be consistent and clear. When notation varies across
+fields, I'll note it. When terminology is ambiguous, I'll specify what
+we mean.
+
+In general:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Greek letters} (β, μ, σ) denote \textbf{unknown parameters}
+  we're trying to learn about
+\item
+  \textbf{Roman letters} (\(b\), \(\bar{x}\), \(s\)) denote
+  \textbf{statistics} we calculate from data
+\item
+  \textbf{Hats} (\(\hat{\beta}\), \(\hat{\mu}\)) denote
+  \textbf{estimates} of parameters
+\end{itemize}
+
+But exceptions abound. Context is key.
+
+\section{Let's Begin}\label{lets-begin}
+
+Statistics is hard. But it's also fascinating. You're about to embark on
+a journey that will change how you see data, research, and arguments
+about the world.
+
+You'll develop skills that are in high demand. More importantly, you'll
+develop \textbf{judgment}---the ability to reason well under
+uncertainty, to evaluate claims critically, and to communicate
+quantitative findings clearly.
+
+The journey starts with a simple question: What's a good way to
+summarize data in one dimension?
+
+Let's find out.
+
+\chapter{How to Use This Book}\label{sec-how-to-use}
+
+\section{For Students}\label{for-students}
+
+\subsection{The Exploration Cycle}\label{the-exploration-cycle}
+
+Each chapter in this book is built around an \textbf{exploration}---a
+guided investigation of statistical concepts through data, code, and
+questions. The typical cycle is:
+
+\begin{verbatim}
+READ Scenario → RUN Code → ANSWER Questions →
+  EXPERIMENT → BREAK Things → FIX Them →
+    DISCOVER Patterns → FORMALIZE Concepts →
+      DISCUSS → EXTEND
+\end{verbatim}
+
+\subsection{Recommended Workflow}\label{recommended-workflow}
+
+\textbf{Step 1: Read the Scenario} (5-10 minutes)
+
+Each chapter starts with a story---often involving fictional characters
+facing real statistical challenges. Read it carefully. These scenarios:
+
+\begin{itemize}
+\tightlist
+\item
+  Motivate why we care about the statistical concepts
+\item
+  Frame the questions we'll explore
+\item
+  Provide context for interpreting results
+\end{itemize}
+
+\textbf{Step 2: Set Up Your Computing Environment} (5-15 minutes)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Install required packages (first time only)}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{, }\StringTok{"here"}\NormalTok{, }\StringTok{"knitr"}\NormalTok{))}
+
+\CommentTok{\# Load packages}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(here)}
+
+\CommentTok{\# Download data}
+\CommentTok{\# (See the book\textquotesingle{}s GitHub repository)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Step 3: Work Through the Exploration} (60-120 minutes)
+
+This is where the real learning happens. For each code chunk:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Read} the code before running it
+\item
+  \textbf{Predict} what it will do
+\item
+  \textbf{Run} it and see if you were right
+\item
+  \textbf{Examine} the output carefully
+\item
+  \textbf{Modify} the code to test your understanding
+\end{enumerate}
+
+For example, if you see:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{hours\_helping, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Ask yourself:
+
+\begin{itemize}
+\tightlist
+\item
+  What is \texttt{mean()} doing?
+\item
+  What is \texttt{na.rm}? Why \texttt{TRUE}?
+\item
+  What if I change it to \texttt{FALSE}?
+\item
+  What if I use \texttt{median()} instead?
+\end{itemize}
+
+\textbf{Try it!} The best way to understand code is to break it and fix
+it.
+
+\textbf{Step 4: Answer the Questions} (30-60 minutes)
+
+Each exploration poses questions. Some are:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Mechanical}: ``What does this code do?''
+\item
+  \textbf{Conceptual}: ``Why does the trimmed mean differ from the
+  regular mean?''
+\item
+  \textbf{Evaluative}: ``When should we use one versus the other?''
+\item
+  \textbf{Creative}: ``How would you approach this differently?''
+\end{itemize}
+
+Write out your answers. Writing forces clarity. You might:
+
+\begin{itemize}
+\tightlist
+\item
+  Create an R Markdown or Quarto document
+\item
+  Keep a statistics notebook
+\item
+  Type answers in a shared document (if working in a group)
+\end{itemize}
+
+\textbf{Step 5: Experiment and Extend} (30-90 minutes)
+
+Once you've worked through the provided code, try:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Different data}: Load your own data or find public data
+\item
+  \textbf{Different methods}: Try alternative approaches you read about
+\item
+  \textbf{Different questions}: Pose your own statistical questions
+\item
+  \textbf{Simulations}: Simulate data to test your understanding
+\end{itemize}
+
+The explorations are starting points, not finish lines.
+
+\textbf{Step 6: Read and Discuss} (30-60 minutes)
+
+Each chapter includes \textbf{recommended readings}. You don't have to
+read everything, but:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Skim} all of them to see which speaks to you
+\item
+  \textbf{Read deeply} 1-2 that clarify things or offer new perspectives
+\item
+  \textbf{Compare} different authors' explanations
+\end{itemize}
+
+Then discuss (with study group, classmates, or just by writing):
+
+\begin{itemize}
+\tightlist
+\item
+  What did you learn from the exploration?
+\item
+  What's still confusing?
+\item
+  How does this connect to your research interests?
+\item
+  What new questions arose?
+\end{itemize}
+
+\subsection{Working in Groups}\label{working-in-groups}
+
+Many students find it helpful to work in groups of 2-4 people. This is
+encouraged, with some caveats:
+
+\textbf{DO}:
+
+\begin{itemize}
+\tightlist
+\item
+  Work through the exploration together, talking through ideas
+\item
+  Share strategies for debugging code
+\item
+  Discuss conceptual questions
+\item
+  Divide up readings and summarize for each other
+\item
+  Teach each other what you understand
+\end{itemize}
+
+\textbf{DON'T}:
+
+\begin{itemize}
+\tightlist
+\item
+  Divide up the work so each person only does part of it
+\item
+  Just copy someone else's code without understanding it
+\item
+  Skip parts because ``someone else got it''
+\item
+  Let one person do all the coding while others watch
+\end{itemize}
+
+\textbf{The goal} is for everyone in the group to engage with all parts
+of the exploration.
+
+\subsection{When You Get Stuck}\label{when-you-get-stuck}
+
+\subsubsection{On Code}\label{on-code}
+
+\textbf{Error messages} are your friends (once you learn to read them):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(hours\_helping, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\CommentTok{\# Error: object \textquotesingle{}hours\_helping\textquotesingle{} not found}
+\end{Highlighting}
+\end{Shaded}
+
+This tells you: R can't find \texttt{hours\_helping}. Maybe you need
+\texttt{data\$hours\_helping} or you haven't loaded the data yet.
+
+\textbf{Debugging strategies}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Read the error message carefully
+\item
+  Check for typos
+\item
+  Verify you've loaded necessary packages
+\item
+  Try a simpler version of the code
+\item
+  Search the exact error message online
+\item
+  Use \texttt{?function\_name} to read help files
+\item
+  Ask an AI assistant (but verify you understand the answer)
+\end{enumerate}
+
+\subsubsection{On Concepts}\label{on-concepts}
+
+\textbf{Confusion is normal}. Statistics is subtle. When concepts aren't
+clicking:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Try to explain it to someone else (or write it out)
+\item
+  Draw a picture or diagram
+\item
+  Simulate a simple example where you know the answer
+\item
+  Read an alternative explanation
+\item
+  Come to office hours with specific questions
+\item
+  Sleep on it (seriously---your brain processes while you sleep)
+\end{enumerate}
+
+\subsubsection{On ``Why Would I Ever Use
+This?''}\label{on-why-would-i-ever-use-this}
+
+Sometimes you'll learn methods that seem artificial or impractical.
+Trust that:
+
+\begin{itemize}
+\tightlist
+\item
+  They'll make sense later when we connect ideas
+\item
+  They're building blocks for more complex methods
+\item
+  Understanding the simple case helps you understand the complex case
+\end{itemize}
+
+But also: ask! ``When would I actually use this?'' is a great question.
+
+\section{For Instructors}\label{for-instructors}
+
+\subsection{Using This Book in a Flipped
+Classroom}\label{using-this-book-in-a-flipped-classroom}
+
+This book is designed for a \textbf{flipped classroom} where students
+explore before class and come with questions to discuss.
+
+\textbf{Typical Weekly Schedule}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Monday}: Release new exploration chapter
+\item
+  \textbf{Tuesday-Thursday}: Students work through exploration
+  (individually or in groups)
+\item
+  \textbf{Friday (or Monday)}: Class discussion
+\end{itemize}
+
+\subsection{Class Time Structure}\label{class-time-structure}
+
+\textbf{Option 1: Question-Driven Discussion} (recommended)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Collect questions} (5 min): Students write top questions on
+  board/doc
+\item
+  \textbf{Prioritize} (5 min): Vote or instructor selects most
+  generative questions
+\item
+  \textbf{Discuss} (60-75 min): Work through questions, with
+  mini-lectures as needed
+\item
+  \textbf{Synthesize} (10 min): Summarize key takeaways, preview next
+  week
+\end{enumerate}
+
+\textbf{Option 2: Structured Activities}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Pair-share} (10 min): Pairs discuss what confused them most
+\item
+  \textbf{Live coding} (20 min): Instructor demonstrates key techniques
+\item
+  \textbf{Group problem-solving} (30 min): Groups tackle extension
+  problems
+\item
+  \textbf{Report out} (10 min): Groups share approaches
+\end{enumerate}
+
+\textbf{Option 3: Hybrid}
+
+Mix question-driven discussion with planned mini-lectures on key
+concepts that students often struggle with.
+
+\subsection{Assessment}\label{assessment}
+
+\textbf{Explorations} (40\%):
+
+\begin{itemize}
+\tightlist
+\item
+  Graded on completeness and thoughtfulness, not correctness
+\item
+  ``Satisfactory'' = genuine attempt to answer all questions, run code,
+  experiment
+\item
+  Can be done in groups
+\end{itemize}
+
+\textbf{Individual Quizzes} (20\%):
+
+\begin{itemize}
+\tightlist
+\item
+  Short (3-5 questions), focused on key concepts from previous week
+\item
+  Ensures individual understanding
+\end{itemize}
+
+\textbf{Final Project} (30\%):
+
+\begin{itemize}
+\tightlist
+\item
+  Replication of published study with new methods
+\item
+  Pre-analysis plan for own research
+\item
+  Methods paper investigating a specific technique
+\end{itemize}
+
+\textbf{Participation} (10\%):
+
+\begin{itemize}
+\tightlist
+\item
+  Asking/answering questions in class
+\item
+  Helping classmates
+\end{itemize}
+
+\subsection{Customization}\label{customization}
+
+You can:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Reorder} chapters (after Part I) to fit your emphasis
+\item
+  \textbf{Skip} chapters if your students have prior background
+\item
+  \textbf{Supplement} with your own examples/data from your field
+\item
+  \textbf{Extend} explorations with additional questions
+\item
+  \textbf{Create} new explorations using the same format
+\end{itemize}
+
+All materials are open-source. Fork and adapt as needed.
+
+\subsection{Support}\label{support}
+
+For teaching materials (slides, answer keys, additional exercises):
+
+\begin{itemize}
+\tightlist
+\item
+  See the book's GitHub repository
+\item
+  Join the instructors' mailing list
+\item
+  Contribute your own materials
+\end{itemize}
+
+\section{For Self-Learners}\label{for-self-learners}
+
+Using this book on your own? You can succeed, but it requires discipline
+and creativity.
+
+\textbf{Create structure}:
+
+\begin{itemize}
+\tightlist
+\item
+  Set a regular schedule (e.g., one chapter per week)
+\item
+  Block out time for exploration (treat it like a class meeting)
+\item
+  Set deadlines for yourself
+\end{itemize}
+
+\textbf{Find community}:
+
+\begin{itemize}
+\tightlist
+\item
+  Join or create a study group (virtual or in-person)
+\item
+  Find an online forum or Slack channel
+\item
+  Share your work on GitHub or a blog
+\item
+  Ask questions on Stack Overflow, Cross Validated, or similar
+\end{itemize}
+
+\textbf{Get feedback}:
+
+\begin{itemize}
+\tightlist
+\item
+  Post your code and ask for review
+\item
+  Explain concepts on social media (teaching helps learning)
+\item
+  Apply methods to your own data and share results
+\end{itemize}
+
+\textbf{Supplement}:
+
+\begin{itemize}
+\tightlist
+\item
+  Watch videos of statistics lectures (to hear alternative explanations)
+\item
+  Read widely (different textbooks, blog posts, papers)
+\item
+  Do the recommended readings
+\item
+  Seek out research papers that use methods you're learning
+\end{itemize}
+
+\textbf{Check understanding}:
+
+\begin{itemize}
+\tightlist
+\item
+  Can you explain the concept to a non-statistician?
+\item
+  Can you write code from scratch (not just run provided code)?
+\item
+  Can you modify methods for new contexts?
+\item
+  Can you evaluate when methods are appropriate?
+\end{itemize}
+
+If yes to all four, you've mastered it. If not, keep exploring.
+
+\section{Technical Setup}\label{technical-setup}
+
+\subsection{Required Software}\label{required-software}
+
+\textbf{R} (version 4.0 or later):
+
+\begin{itemize}
+\tightlist
+\item
+  Download from \url{https://cran.r-project.org/}
+\item
+  Free and open-source
+\end{itemize}
+
+\textbf{RStudio} (recommended but not required):
+
+\begin{itemize}
+\tightlist
+\item
+  Download from \url{https://posit.co/downloads/}
+\item
+  Makes R much easier to use
+\item
+  Alternatives: VS Code, Jupyter, command line
+\end{itemize}
+
+\textbf{Quarto} (if you want to render documents like the book):
+
+\begin{itemize}
+\tightlist
+\item
+  Download from \url{https://quarto.org/}
+\item
+  Integrates with RStudio
+\end{itemize}
+
+\subsection{Required R Packages}\label{required-r-packages}
+
+Install with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+  \StringTok{"tidyverse"}\NormalTok{,      }\CommentTok{\# Data manipulation and visualization}
+  \StringTok{"here"}\NormalTok{,           }\CommentTok{\# File path management}
+  \StringTok{"knitr"}\NormalTok{,          }\CommentTok{\# Document generation}
+  \StringTok{"broom"}\NormalTok{,          }\CommentTok{\# Tidy model outputs}
+  \StringTok{"estimatr"}\NormalTok{,       }\CommentTok{\# Robust SEs and other estimators}
+  \StringTok{"DeclareDesign"}\NormalTok{,  }\CommentTok{\# Research design simulation}
+  \StringTok{"optmatch"}\NormalTok{,       }\CommentTok{\# Optimal matching}
+  \StringTok{"RItools"}\NormalTok{,        }\CommentTok{\# Randomization inference tools}
+  \StringTok{"coin"}\NormalTok{,           }\CommentTok{\# Conditional inference}
+  \StringTok{"boot"}\NormalTok{,           }\CommentTok{\# Bootstrap methods}
+  \StringTok{"sandwich"}\NormalTok{,       }\CommentTok{\# Robust covariance matrices}
+  \StringTok{"lmtest"}          \CommentTok{\# Linear model testing}
+\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Downloading Data}\label{downloading-data}
+
+All data files are available at:
+
+\textbf{https://github.com/{[}your-repo{]}/statistics-textbook/data}
+
+You can:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Clone the entire repository
+\item
+  Download individual data files
+\item
+  Load some directly from R using URLs
+\end{enumerate}
+
+\subsection{Getting Help}\label{getting-help}
+
+If you encounter problems:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Check the FAQ} (Appendix X)
+\item
+  \textbf{Search existing issues} on GitHub
+\item
+  \textbf{Post a new issue} with:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    What you tried
+  \item
+    What happened
+  \item
+    What you expected
+  \item
+    Your R version and OS
+  \item
+    A minimal reproducible example
+  \end{itemize}
+\end{enumerate}
+
+\section{Accessibility}\label{accessibility}
+
+We strive to make this book accessible to all learners. If you encounter
+barriers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Vision}: All figures include alt text. Code can be enlarged in
+  RStudio.
+\item
+  \textbf{Color}: Plots avoid relying solely on color to convey
+  information.
+\item
+  \textbf{Mathematics}: Key equations are explained in words, not just
+  symbols.
+\item
+  \textbf{Language}: We avoid jargon when possible and define technical
+  terms.
+\end{itemize}
+
+If you need accommodations not currently provided, please contact us.
+
+\section{License and Sharing}\label{license-and-sharing}
+
+This book is licensed under \textbf{Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0}.
+
+You can:
+
+\begin{itemize}
+\tightlist
+\item
+  Share it freely
+\item
+  Adapt it for your own teaching
+\item
+  Create derivative works
+\end{itemize}
+
+You must:
+
+\begin{itemize}
+\tightlist
+\item
+  Give credit
+\item
+  Use the same license
+\item
+  Not use commercially without permission
+\end{itemize}
+
+All code is licensed under MIT License (use freely, even commercially).
+
+\section{Contributing}\label{contributing}
+
+Found a typo? Have a better explanation? Created a great extension
+exercise?
+
+We welcome contributions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Fork the repository
+\item
+  Make your changes
+\item
+  Submit a pull request
+\end{enumerate}
+
+Even small contributions (typo fixes, clarifications) are valuable.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Now that you know how to use the book, let's begin exploring statistics!
+
+\part{Part II: Three Cheers for Description}
+
+\chapter{Exploration 1: Description in
+One-Dimension}\label{exploration-1-description-in-one-dimension}
+
+This document is called an ``exploration'' rather than a ``problem set''
+or ``homework'' because the point is to use the discussion, code,
+results, questions here to learn something new, practice thinking about
+statistical concepts, data, and code and to raise new questions that
+you'd like to discuss in class. Some of the code and output might be
+visible in a pdf file and some might not. The code has errors that you
+will need to fix and understand. You should work with the source
+document itself as you answer the questions posed by me (the author) as
+well as the questions posed by fictional actors who I invent in the
+hopes of making these explorations fun. I also expect you to explain the
+code, and otherwise explore the data and the questions arising from
+their discussion.
+
+I expect that: - you will make an attempt to answer every question posed
+here - you will read the pieces that are recommended. You should be able
+to answer questions about what the reading said. - you will make an
+attempt to explain to yourself every line of code written in this
+document, - you will run all of the code yourself, - that you will write
+some new code of your own as you work on answering the questions. (For
+example, you might look for alternative ways to summarize ``location''
+or ``spread'' other than those used here. You might try different
+arguments to the same functions used here. Or you might find new
+functions or write your own. Or you might try using these functions on
+different data. You might have conversations with an AI to help you
+understand what is going on here and to get suggestions for alternatives
+with their associated advantages and disadvantages.)
+
+Useful reading about description:
+
+\begin{itemize}
+\tightlist
+\item
+  Wilcox (2012), Chap 1--3
+\item
+  Kaplan (2012), Chap 2--3
+\end{itemize}
+
+\bigskip
+
+``Brexit! UKIP! ISIL! Taliban! COVID!'' When your old friend calls, she
+seems to be yelling. Once she calms down, she explains: ``I am in charge
+of Improving Civic Society programs for the United Nations, and have
+been asked to step in to help out at the UK Office of Social Capital.''
+After you congratulate her on what appears to be a promotion she
+continues. ``The thing is that over here in the UK, they are really big
+on numbers. I asked my staff for a simple report on the status of civic
+society in the UK before all of the recent unrest happened there, say,
+in 2005, before the London Bombings. They responded with numbers. When I
+asked them to explain, I found their desks empty, their chairs knocked
+over, their computers smashed, but their coffee cups still warm and
+untouched.'' You ask her about her own safety and she responds. ``This
+is all within operational parameters. No worries. My problem is that I
+need to report to the high command, I mean, my manager, and I don't know
+what the right answer is. Now I don't even have numbers. Please help.
+Can we hop on a Zoom call?''
+
+She does not enable video in the Zoom call. However, she begins sending
+you some code. ``Here is what I have in terms of output. Can you explain
+to me what is going on with each line of code? I mean shouldn't the
+total number of hours people spend helping each other be something other
+than \texttt{NA}? How do you figure out what is going on when you make
+errors or find something confusing in \texttt{R}?''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"http://jakebowers.org/Data/ho05.rda"}\NormalTok{))}
+\FunctionTok{table}\NormalTok{(ho05}\SpecialCharTok{$}\NormalTok{postbomb, }\AttributeTok{useNA =} \StringTok{"ifany"}\NormalTok{)}
+\NormalTok{wrkdat }\OtherTok{\textless{}{-}}\NormalTok{ ho05 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(postbomb }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)}
+\FunctionTok{sum}\NormalTok{(wrkdat}\SpecialCharTok{$}\NormalTok{hlphrs)}
+\end{Highlighting}
+\end{Shaded}
+
+She continues, ``And then I have this from a previous meeting where they
+talked about \texttt{codebooks} but I don't think these were the
+ordinary kind of encrypted communication behind enemy lines it seems
+like a weird codebook to me.''
+
+\begin{verbatim}
+### CODEBOOK
+postbomb: 1=interviewed after the bombing, 0=interviewed before the bombing
+
+grphrs: 6.1.1 Which of the following groups, clubs or organisations
+  have you been involved with during the last 12 months? That's anything
+  you've taken part in, supported, or that you've helped in any way, either
+  on your own or with others. Please exclude giving money and anything that
+  was a requirement of your job.
+
+  6.1.2 In the last 12 months have you given unpaid help to any groups, clubs or
+  organisations in any of the following ways?
+
+  6.1.5 Approximately how many hours have you spent helping this/these group(s),
+  club(s) or organisation(s) in the past 4 weeks?
+
+infhrs: In the last 12 months have you done any of the following things,
+  unpaid, for someone who was not a relative?
+
+  This is any unpaid help you, as an individual, may have given to other people,
+  that is apart from any help given through a group, club or organisation. This
+  could be help for a friend, neighbour or someone else but not a relative.
+
+  6.4.4 Now just thinking about the past 4 weeks. Approximately how many hours
+  have you spent doing this kind of thing/these kind of things in the past 4
+  weeks?
+
+hlphrs: grphrs+infhrs
+\end{verbatim}
+
+She asks, ``What is the best way describe how civic life was going
+before the bombings in 2005 (let alone before all of the other
+disruptions occurred in the UK)? What is the right answer?''
+
+Later, after you had worked on this a bit she calls back, ``Hey. Thanks
+so much for helping! I just found this code and thought it might be
+useful although it has some errors. What do you think? Can you tell me
+what this means? Does it help me get the right answer about how much
+time people in the UK were devoting to helping each other and/or
+supporting groups? Why are there so many ways to descibe a single
+variable anyway? What is the point? Which approaches do you prefer (from
+those below and others)? Also, are there any plots that would help me
+tell the right story about this variable? What might they be? What do
+they look like?''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(wrkdat}\SpecialCharTok{$}\NormalTok{hlphrs, }\AttributeTok{trim =}\NormalTok{ .}\DecValTok{1}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{hlp\_vec }\OtherTok{\textless{}{-}} \FunctionTok{unlist}\NormalTok{(wrkdat }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(hlphrs) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(hlphrs)))}
+\FunctionTok{mean}\NormalTok{(hlp\_vec, }\AttributeTok{trim =}\NormalTok{ .}\DecValTok{1}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{winsor.mean}\NormalTok{(hlp\_vec)}
+\FunctionTok{mean}\NormalTok{(}\FunctionTok{winsorize}\NormalTok{(hlp\_vec))}
+
+\NormalTok{one\_step\_M\_est }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
+  \DocumentationTok{\#\# Following Section 2.1 in http://www.psychology.mcmaster.ca/bennett/boot09/rt2.pdf}
+\NormalTok{  madn }\OtherTok{\textless{}{-}} \FunctionTok{mad}\NormalTok{(x, }\AttributeTok{constant =} \FloatTok{1.4826}\NormalTok{) }\DocumentationTok{\#\# 1/1.4826 = .6745}
+\NormalTok{  M }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{abs}\NormalTok{(x }\SpecialCharTok{{-}} \FunctionTok{median}\NormalTok{(x)) }\SpecialCharTok{/}\NormalTok{ madn) }\SpecialCharTok{\textgreater{}} \FloatTok{1.28}
+\NormalTok{  U }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(x }\SpecialCharTok{\textgreater{}}\NormalTok{ M)}
+\NormalTok{  L }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(x }\SpecialCharTok{\textless{}}\NormalTok{ M)}
+\NormalTok{  B }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(x) }\SpecialCharTok{{-}}\NormalTok{ U }\SpecialCharTok{{-}}\NormalTok{ L}
+\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(x)}
+\NormalTok{  mux }\OtherTok{\textless{}{-}}\NormalTok{ (}\FloatTok{1.28} \SpecialCharTok{*}\NormalTok{ madn }\SpecialCharTok{*}\NormalTok{ (U }\SpecialCharTok{{-}}\NormalTok{ L) }\SpecialCharTok{+}\NormalTok{ B) }\SpecialCharTok{/}\NormalTok{ (n }\SpecialCharTok{{-}}\NormalTok{ L }\SpecialCharTok{{-}}\NormalTok{ U)}
+  \FunctionTok{return}\NormalTok{(mux)}
+\NormalTok{\}}
+
+\NormalTok{least\_squares\_loss }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, the\_var) \{}
+\NormalTok{  ssr }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((the\_var }\SpecialCharTok{{-}}\NormalTok{ x)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+  \FunctionTok{return}\NormalTok{(ssr)}
+\NormalTok{\}}
+
+\FunctionTok{onestepMest}\NormalTok{(hlp\_vec)}
+\NormalTok{huberM\_results }\OtherTok{\textless{}{-}} \FunctionTok{huberM}\NormalTok{(hlp\_vec)}
+\FunctionTok{print}\NormalTok{(huberM\_results}\SpecialCharTok{$}\NormalTok{mu)}
+\FunctionTok{print}\NormalTok{(huberM\_results}\SpecialCharTok{$}\NormalTok{s)}
+
+\NormalTok{ls\_location }\OtherTok{\textless{}{-}} \FunctionTok{optimize}\NormalTok{(}
+  \AttributeTok{f =}\NormalTok{ least\_squares\_loss,}
+  \AttributeTok{the\_var =}\NormalTok{ hlp\_vec,}
+  \AttributeTok{interval =} \FunctionTok{range}\NormalTok{(hlp\_vec)}
+\NormalTok{)}
+
+\NormalTok{ls\_location}
+
+\NormalTok{l1\_loss }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, the\_var) \{}
+\NormalTok{  ssr }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{abs}\NormalTok{(the\_var }\SpecialCharTok{{-}}\NormalTok{ x))}
+  \FunctionTok{return}\NormalTok{(ssr)}
+\NormalTok{\}}
+
+\NormalTok{l1\_location }\OtherTok{\textless{}{-}} \FunctionTok{optimize}\NormalTok{(}
+  \AttributeTok{f =}\NormalTok{ l1\_loss,}
+  \AttributeTok{the\_var =}\NormalTok{ hlp\_vec,}
+  \AttributeTok{interval =} \FunctionTok{range}\NormalTok{(hlp\_vec)}
+\NormalTok{)}
+
+\NormalTok{l1\_location}
+
+\FunctionTok{fivenum}\NormalTok{(hlp\_vec)}
+\FunctionTok{quantile}\NormalTok{(hlp\_vec, }\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
+\FunctionTok{summary}\NormalTok{(hlp\_vec)}
+\FunctionTok{sd}\NormalTok{(hlp\_vec)}
+\FunctionTok{mad}\NormalTok{(hlp\_vec)}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter{References}\label{references}
+
+\begin{itemize}
+\item
+  Rand R Wilcox (2012). Introduction to robust estimation and
+  hypothesistesting. Academic Press, Chap 1--3
+\item
+  Daniel Kaplan (2012). Statistical Modeling A Fresh Approach. Second.
+  Macalester College, St.~Paul, MN: Daniel Kaplan, Chap 2--3
+\end{itemize}
+
+\chapter{Describing Bivariate Relationships: Linear
+Patterns}\label{describing-bivariate-relationships-linear-patterns}
+
+\chapter{Coming Soon}\label{coming-soon}
+
+This chapter will explore linear relationships between two variables.
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, bottomtitle=1mm, titlerule=0mm, breakable, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Exploration Goals}, bottomrule=.15mm, arc=.35mm, colframe=quarto-callout-note-color-frame, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm]
+
+\begin{itemize}
+\tightlist
+\item
+  Understand correlation and covariance
+\item
+  Visualize linear relationships
+\item
+  Interpret slopes and intercepts
+\end{itemize}
+
+\end{tcolorbox}
+
+\emph{Content to be added from course materials}
+
+\chapter{Describing Bivariate Relationships: Nonlinear
+Patterns}\label{describing-bivariate-relationships-nonlinear-patterns}
+
+\chapter{Coming Soon}\label{coming-soon-1}
+
+This chapter will explore nonlinear relationships.
+
+\emph{Content to be added from course materials}
+
+\chapter{Describing Categorical
+Relationships}\label{describing-categorical-relationships}
+
+\chapter{Coming Soon}\label{coming-soon-2}
+
+This chapter will explore categorical data and contingency tables.
+
+\emph{Content to be added from course materials}
+
+\part{Part III: Two Cheers for Statistical Inference}
+
+\chapter{Introduction to Statistical
+Inference}\label{introduction-to-statistical-inference}
+
+\chapter{Coming Soon}\label{coming-soon-3}
+
+This chapter will explore the logic of statistical inference.
+
+\emph{Content to be added from course materials}
+
+\chapter{Estimation in Causal
+Studies}\label{estimation-in-causal-studies}
+
+\chapter{Coming Soon}\label{coming-soon-4}
+
+This chapter will explore causal effect estimation.
+
+\emph{Content to be added from course materials}
+
+\chapter{Estimation in Population
+Studies}\label{estimation-in-population-studies}
+
+\chapter{Coming Soon}\label{coming-soon-5}
+
+This chapter will explore population parameter estimation.
+
+\emph{Content to be added from course materials}
+
+\chapter{Hypothesis Testing}\label{hypothesis-testing}
+
+\chapter{Coming Soon}\label{coming-soon-6}
+
+This chapter will explore hypothesis testing frameworks.
+
+\emph{Content to be added from course materials}
+
+\chapter{Confidence Intervals}\label{confidence-intervals}
+
+\chapter{Coming Soon}\label{coming-soon-7}
+
+This chapter will explore constructing and interpreting confidence
+intervals.
+
+\emph{Content to be added from course materials}
+
+\part{Part IV: One Cheer for Causal Inference}
+
+\chapter{Counterfactuals and Causal
+Reasoning}\label{counterfactuals-and-causal-reasoning}
+
+\chapter{Coming Soon}\label{coming-soon-8}
+
+This chapter will explore counterfactual thinking in causal inference.
+
+\emph{Content to be added from course materials}
+
+\chapter{Randomization and Experimental
+Design}\label{randomization-and-experimental-design}
+
+\chapter{Coming Soon}\label{coming-soon-9}
+
+This chapter will explore randomized experiments.
+
+\emph{Content to be added from course materials}
+
+\chapter{The Potential Outcomes
+Framework}\label{the-potential-outcomes-framework}
+
+\chapter{Coming Soon}\label{coming-soon-10}
+
+This chapter will explore the potential outcomes approach to causality.
+
+\emph{Content to be added from course materials}
+
+\part{Part V: Adjustment - Controlling For What?}
+
+\chapter{Why Adjust? The Problem of
+Confounding}\label{why-adjust-the-problem-of-confounding}
+
+\chapter{Coming Soon}\label{coming-soon-11}
+
+This chapter will explore confounding and the need for adjustment.
+
+\emph{Content to be added from course materials}
+
+\chapter{Covariance Adjustment}\label{covariance-adjustment}
+
+\chapter{Coming Soon}\label{coming-soon-12}
+
+This chapter will explore adjustment via covariance methods.
+
+\emph{Content to be added from course materials}
+
+\chapter{Simple Stratification}\label{simple-stratification}
+
+\chapter{Coming Soon}\label{coming-soon-13}
+
+This chapter will explore basic stratification techniques.
+
+\emph{Content to be added from course materials}
+
+\chapter{Multivariate Stratification and
+Matching}\label{multivariate-stratification-and-matching}
+
+\chapter{Coming Soon}\label{coming-soon-14}
+
+This chapter will explore advanced stratification and matching.
+
+\emph{Content to be added from course materials}
+
+\chapter{Nonbipartite Matching}\label{nonbipartite-matching}
+
+\chapter{Coming Soon}\label{coming-soon-15}
+
+This chapter will explore nonbipartite matching approaches.
+
+\emph{Content to be added from course materials}
+
+\chapter{Longitudinal and Panel
+Matching}\label{longitudinal-and-panel-matching}
+
+\chapter{Coming Soon}\label{coming-soon-16}
+
+This chapter will explore matching in longitudinal studies.
+
+\emph{Content to be added from course materials}
+
+\chapter{Sensitivity Analysis}\label{sensitivity-analysis}
+
+\chapter{Coming Soon}\label{coming-soon-17}
+
+This chapter will explore sensitivity analysis for unobserved
+confounding.
+
+\emph{Content to be added from course materials}
+
+\part{Part VI: Large Sample Theory and Connections}
+
+\chapter{The Central Limit Theorem and
+Approximations}\label{the-central-limit-theorem-and-approximations}
+
+\chapter{Coming Soon}\label{coming-soon-18}
+
+This chapter will explore the CLT and its applications.
+
+\emph{Content to be added from course materials}
+
+\chapter{Standard Errors}\label{standard-errors}
+
+\chapter{Coming Soon}\label{coming-soon-19}
+
+This chapter will explore calculating and interpreting standard errors.
+
+\emph{Content to be added from course materials}
+
+\chapter{Robust and Clustered Standard
+Errors}\label{robust-and-clustered-standard-errors}
+
+\chapter{Coming Soon}\label{coming-soon-20}
+
+This chapter will explore robust inference with complex data.
+
+\emph{Content to be added from course materials}
+
+\part{Part VII: Model-Based Inference}
+
+\chapter{Introduction to Maximum
+Likelihood}\label{introduction-to-maximum-likelihood}
+
+\chapter{Coming Soon}\label{coming-soon-21}
+
+This chapter will explore maximum likelihood estimation.
+
+\emph{Content to be added from course materials}
+
+\chapter{Maximum Likelihood for Linear
+Models}\label{maximum-likelihood-for-linear-models}
+
+\chapter{Coming Soon}\label{coming-soon-22}
+
+This chapter will explore MLE applied to linear models.
+
+\emph{Content to be added from course materials}
+
+\chapter{Logit, Probit, and Poisson
+Models}\label{logit-probit-and-poisson-models}
+
+\chapter{Coming Soon}\label{coming-soon-23}
+
+This chapter will explore generalized linear models.
+
+\emph{Content to be added from course materials}
+
+\chapter{Model Selection and
+Validation}\label{model-selection-and-validation}
+
+\chapter{Coming Soon}\label{coming-soon-24}
+
+This chapter will explore choosing and validating models.
+
+\emph{Content to be added from course materials}
+
+\part{Appendices}
+
+\chapter{R Programming Basics}\label{r-programming-basics}
+
+\chapter{Coming Soon}\label{coming-soon-25}
+
+This appendix will cover fundamental R programming skills.
+
+\emph{Content to be added from course materials}
+
+\chapter{Matrix Algebra Review}\label{matrix-algebra-review}
+
+\chapter{Coming Soon}\label{coming-soon-26}
+
+This appendix will cover essential matrix algebra.
+
+\emph{Content to be added from course materials}
+
+\chapter{Simulation Techniques}\label{simulation-techniques}
+
+\chapter{Coming Soon}\label{coming-soon-27}
+
+This appendix will cover simulation methods in statistics.
+
+\emph{Content to be added from course materials}
+
+\chapter{Using GitHub for Reproducible
+Research}\label{using-github-for-reproducible-research}
+
+\chapter{Coming Soon}\label{coming-soon-28}
+
+This appendix will cover version control and collaboration with GitHub.
+
+\emph{Content to be added from course materials}
+
+\bookmarksetup{startatroot}
+
+\chapter*{References}\label{references-1}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-kaplan2012ism}
+Kaplan, Daniel T. 2012. \emph{Statistical Modeling: A Fresh Approach}.
+2nd ed. Project MOSAIC.
+
+\bibitem[\citeproctext]{ref-wilcox2012introduction}
+Wilcox, Rand R. 2012. \emph{Introduction to Robust Estimation and
+Hypothesis Testing}. 3rd ed. Academic Press.
+
+\end{CSLReferences}
+
+\section*{Additional Resources}\label{additional-resources}
+\addcontentsline{toc}{section}{Additional Resources}
+
+\markright{Additional Resources}
+
+\subsection*{Textbooks Referenced
+Throughout}\label{textbooks-referenced-throughout}
+\addcontentsline{toc}{subsection}{Textbooks Referenced Throughout}
+
+This book draws on insights from many excellent statistics textbooks.
+Here are some particularly recommended ones:
+
+\textbf{For Conceptual Understanding:}
+
+\begin{itemize}
+\tightlist
+\item
+  Berk, R. A. (2004). \emph{Regression Analysis: A Constructive
+  Critique}. Sage Publications.
+\item
+  Rosenbaum, P. R. (2017). \emph{Observation and Experiment: An
+  Introduction to Causal Inference}. Harvard University Press.
+\item
+  Gelman, A., \& Hill, J. (2007). \emph{Data Analysis Using Regression
+  and Multilevel/Hierarchical Models}. Cambridge University Press.
+\end{itemize}
+
+\textbf{For Applied Statistics:}
+
+\begin{itemize}
+\tightlist
+\item
+  Fox, J. (2016). \emph{Applied Regression Analysis and Generalized
+  Linear Models} (3rd ed.). Sage Publications.
+\item
+  Gerber, A. S., \& Green, D. P. (2012). \emph{Field Experiments:
+  Design, Analysis, and Interpretation}. W.W. Norton.
+\end{itemize}
+
+\textbf{For Statistical Theory:}
+
+\begin{itemize}
+\tightlist
+\item
+  Cox, D. R. (2006). \emph{Principles of Statistical Inference}.
+  Cambridge University Press.
+\item
+  Rice, J. A. (2007). \emph{Mathematical Statistics and Data Analysis}
+  (3rd ed.). Duxbury Press.
+\end{itemize}
+
+\textbf{For Robust Methods:}
+
+\begin{itemize}
+\tightlist
+\item
+  Wilcox, R. R. (2012). \emph{Introduction to Robust Estimation and
+  Hypothesis Testing} (3rd ed.). Academic Press.
+\end{itemize}
+
+\textbf{For Causal Inference:}
+
+\begin{itemize}
+\tightlist
+\item
+  Imbens, G. W., \& Rubin, D. B. (2015). \emph{Causal Inference for
+  Statistics, Social, and Biomedical Sciences}. Cambridge University
+  Press.
+\item
+  Rosenbaum, P. R. (2010). \emph{Design of Observational Studies}.
+  Springer.
+\item
+  Dunning, T. (2012). \emph{Natural Experiments in the Social Sciences}.
+  Cambridge University Press.
+\end{itemize}
+
+\subsection*{Online Resources}\label{online-resources}
+\addcontentsline{toc}{subsection}{Online Resources}
+
+\textbf{R Programming:}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://r4ds.had.co.nz/}{R for Data Science} by Hadley Wickham
+  and Garrett Grolemund
+\item
+  \href{https://adv-r.hadley.nz/}{Advanced R} by Hadley Wickham
+\end{itemize}
+
+\textbf{Statistical Methods:}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://egap.org/methods-guides/}{EGAP Methods Guides}
+\item
+  \href{https://stats.stackexchange.com/}{Cross Validated} (Q\&A site)
+\item
+  \href{https://statmodeling.stat.columbia.edu/}{Statistical Modeling,
+  Causal Inference, and Social Science} (Andrew Gelman's blog)
+\end{itemize}
+
+\textbf{Causal Inference:}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://bayes.cs.ucla.edu/WHY/}{The Book of Why} by Judea Pearl
+\item
+  \href{https://mixtape.scunning.com/}{Causal Inference: The Mixtape} by
+  Scott Cunningham
+\end{itemize}
+
+\subsection*{Papers Frequently Cited}\label{papers-frequently-cited}
+\addcontentsline{toc}{subsection}{Papers Frequently Cited}
+
+Key methodological papers that shaped this book's approach:
+
+\begin{itemize}
+\tightlist
+\item
+  Fisher, R. A. (1935). \emph{The Design of Experiments}. Oliver and
+  Boyd.
+\item
+  Neyman, J. (1923). On the application of probability theory to
+  agricultural experiments.
+\item
+  Rubin, D. B. (1974). Estimating causal effects of treatments in
+  randomized and nonrandomized studies.
+\item
+  Rosenbaum, P. R., \& Rubin, D. B. (1983). The central role of the
+  propensity score in observational studies for causal effects.
+\item
+  Hansen, B. B. (2004). Full matching in an observational study of
+  coaching for the SAT.
+\item
+  Abadie, A., \& Imbens, G. W. (2006). Large sample properties of
+  matching estimators for average treatment effects.
+\end{itemize}
+
+(Full references for all cited works appear above in the automatically
+generated bibliography.)
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{Appendices}
+\appendix
+
+\chapter{R Programming Basics}\label{r-programming-basics-1}
+
+\chapter{Coming Soon}\label{coming-soon-29}
+
+This appendix will cover fundamental R programming skills.
+
+\emph{Content to be added from course materials}
+
+\chapter{Matrix Algebra Review}\label{matrix-algebra-review-1}
+
+\chapter{Coming Soon}\label{coming-soon-30}
+
+This appendix will cover essential matrix algebra.
+
+\emph{Content to be added from course materials}
+
+\chapter{Simulation Techniques}\label{simulation-techniques-1}
+
+\chapter{Coming Soon}\label{coming-soon-31}
+
+This appendix will cover simulation methods in statistics.
+
+\emph{Content to be added from course materials}
+
+\chapter{Using GitHub for Reproducible
+Research}\label{using-github-for-reproducible-research-1}
+
+\chapter{Coming Soon}\label{coming-soon-32}
+
+This appendix will cover version control and collaboration with GitHub.
+
+\emph{Content to be added from course materials}
+
+
+\backmatter
+
+
+\end{document}

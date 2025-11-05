@@ -1,0 +1,395 @@
+# How to Use This Book {#sec-how-to-use}
+
+## For Students
+
+### The Exploration Cycle
+
+Each chapter in this book is built around an **exploration**—a guided investigation of statistical concepts through data, code, and questions. The typical cycle is:
+
+```
+READ Scenario → RUN Code → ANSWER Questions →
+  EXPERIMENT → BREAK Things → FIX Them →
+    DISCOVER Patterns → FORMALIZE Concepts →
+      DISCUSS → EXTEND
+```
+
+### Recommended Workflow
+
+**Step 1: Read the Scenario** (5-10 minutes)
+
+Each chapter starts with a story—often involving fictional characters facing real statistical challenges. Read it carefully. These scenarios:
+
+- Motivate why we care about the statistical concepts
+- Frame the questions we'll explore
+- Provide context for interpreting results
+
+**Step 2: Set Up Your Computing Environment** (5-15 minutes)
+
+```{r, eval=FALSE}
+# Install required packages (first time only)
+install.packages(c("tidyverse", "here", "knitr"))
+
+# Load packages
+library(tidyverse)
+library(here)
+
+# Download data
+# (See the book's GitHub repository)
+```
+
+**Step 3: Work Through the Exploration** (60-120 minutes)
+
+This is where the real learning happens. For each code chunk:
+
+1. **Read** the code before running it
+2. **Predict** what it will do
+3. **Run** it and see if you were right
+4. **Examine** the output carefully
+5. **Modify** the code to test your understanding
+
+For example, if you see:
+
+```{r, eval=FALSE}
+mean(data$hours_helping, na.rm = TRUE)
+```
+
+Ask yourself:
+
+- What is `mean()` doing?
+- What is `na.rm`? Why `TRUE`?
+- What if I change it to `FALSE`?
+- What if I use `median()` instead?
+
+**Try it!** The best way to understand code is to break it and fix it.
+
+**Step 4: Answer the Questions** (30-60 minutes)
+
+Each exploration poses questions. Some are:
+
+- **Mechanical**: "What does this code do?"
+- **Conceptual**: "Why does the trimmed mean differ from the regular mean?"
+- **Evaluative**: "When should we use one versus the other?"
+- **Creative**: "How would you approach this differently?"
+
+Write out your answers. Writing forces clarity. You might:
+
+- Create an R Markdown or Quarto document
+- Keep a statistics notebook
+- Type answers in a shared document (if working in a group)
+
+**Step 5: Experiment and Extend** (30-90 minutes)
+
+Once you've worked through the provided code, try:
+
+- **Different data**: Load your own data or find public data
+- **Different methods**: Try alternative approaches you read about
+- **Different questions**: Pose your own statistical questions
+- **Simulations**: Simulate data to test your understanding
+
+The explorations are starting points, not finish lines.
+
+**Step 6: Read and Discuss** (30-60 minutes)
+
+Each chapter includes **recommended readings**. You don't have to read everything, but:
+
+- **Skim** all of them to see which speaks to you
+- **Read deeply** 1-2 that clarify things or offer new perspectives
+- **Compare** different authors' explanations
+
+Then discuss (with study group, classmates, or just by writing):
+
+- What did you learn from the exploration?
+- What's still confusing?
+- How does this connect to your research interests?
+- What new questions arose?
+
+### Working in Groups
+
+Many students find it helpful to work in groups of 2-4 people. This is encouraged, with some caveats:
+
+**DO**:
+
+- Work through the exploration together, talking through ideas
+- Share strategies for debugging code
+- Discuss conceptual questions
+- Divide up readings and summarize for each other
+- Teach each other what you understand
+
+**DON'T**:
+
+- Divide up the work so each person only does part of it
+- Just copy someone else's code without understanding it
+- Skip parts because "someone else got it"
+- Let one person do all the coding while others watch
+
+**The goal** is for everyone in the group to engage with all parts of the exploration.
+
+### When You Get Stuck
+
+#### On Code
+
+**Error messages** are your friends (once you learn to read them):
+
+```{r, eval=FALSE}
+mean(hours_helping, na.rm = TRUE)
+# Error: object 'hours_helping' not found
+```
+
+This tells you: R can't find `hours_helping`. Maybe you need `data$hours_helping` or you haven't loaded the data yet.
+
+**Debugging strategies**:
+
+1. Read the error message carefully
+2. Check for typos
+3. Verify you've loaded necessary packages
+4. Try a simpler version of the code
+5. Search the exact error message online
+6. Use `?function_name` to read help files
+7. Ask an AI assistant (but verify you understand the answer)
+
+#### On Concepts
+
+**Confusion is normal**. Statistics is subtle. When concepts aren't clicking:
+
+1. Try to explain it to someone else (or write it out)
+2. Draw a picture or diagram
+3. Simulate a simple example where you know the answer
+4. Read an alternative explanation
+5. Come to office hours with specific questions
+6. Sleep on it (seriously—your brain processes while you sleep)
+
+#### On "Why Would I Ever Use This?"
+
+Sometimes you'll learn methods that seem artificial or impractical. Trust that:
+
+- They'll make sense later when we connect ideas
+- They're building blocks for more complex methods
+- Understanding the simple case helps you understand the complex case
+
+But also: ask! "When would I actually use this?" is a great question.
+
+## For Instructors
+
+### Using This Book in a Flipped Classroom
+
+This book is designed for a **flipped classroom** where students explore before class and come with questions to discuss.
+
+**Typical Weekly Schedule**:
+
+- **Monday**: Release new exploration chapter
+- **Tuesday-Thursday**: Students work through exploration (individually or in groups)
+- **Friday (or Monday)**: Class discussion
+
+### Class Time Structure
+
+**Option 1: Question-Driven Discussion** (recommended)
+
+1. **Collect questions** (5 min): Students write top questions on board/doc
+2. **Prioritize** (5 min): Vote or instructor selects most generative questions
+3. **Discuss** (60-75 min): Work through questions, with mini-lectures as needed
+4. **Synthesize** (10 min): Summarize key takeaways, preview next week
+
+**Option 2: Structured Activities**
+
+1. **Pair-share** (10 min): Pairs discuss what confused them most
+2. **Live coding** (20 min): Instructor demonstrates key techniques
+3. **Group problem-solving** (30 min): Groups tackle extension problems
+4. **Report out** (10 min): Groups share approaches
+
+**Option 3: Hybrid**
+
+Mix question-driven discussion with planned mini-lectures on key concepts that students often struggle with.
+
+### Assessment
+
+**Explorations** (40%):
+
+- Graded on completeness and thoughtfulness, not correctness
+- "Satisfactory" = genuine attempt to answer all questions, run code, experiment
+- Can be done in groups
+
+**Individual Quizzes** (20%):
+
+- Short (3-5 questions), focused on key concepts from previous week
+- Ensures individual understanding
+
+**Final Project** (30%):
+
+- Replication of published study with new methods
+- Pre-analysis plan for own research
+- Methods paper investigating a specific technique
+
+**Participation** (10%):
+
+- Asking/answering questions in class
+- Helping classmates
+
+### Customization
+
+You can:
+
+- **Reorder** chapters (after Part I) to fit your emphasis
+- **Skip** chapters if your students have prior background
+- **Supplement** with your own examples/data from your field
+- **Extend** explorations with additional questions
+- **Create** new explorations using the same format
+
+All materials are open-source. Fork and adapt as needed.
+
+### Support
+
+For teaching materials (slides, answer keys, additional exercises):
+
+- See the book's GitHub repository
+- Join the instructors' mailing list
+- Contribute your own materials
+
+## For Self-Learners
+
+Using this book on your own? You can succeed, but it requires discipline and creativity.
+
+**Create structure**:
+
+- Set a regular schedule (e.g., one chapter per week)
+- Block out time for exploration (treat it like a class meeting)
+- Set deadlines for yourself
+
+**Find community**:
+
+- Join or create a study group (virtual or in-person)
+- Find an online forum or Slack channel
+- Share your work on GitHub or a blog
+- Ask questions on Stack Overflow, Cross Validated, or similar
+
+**Get feedback**:
+
+- Post your code and ask for review
+- Explain concepts on social media (teaching helps learning)
+- Apply methods to your own data and share results
+
+**Supplement**:
+
+- Watch videos of statistics lectures (to hear alternative explanations)
+- Read widely (different textbooks, blog posts, papers)
+- Do the recommended readings
+- Seek out research papers that use methods you're learning
+
+**Check understanding**:
+
+- Can you explain the concept to a non-statistician?
+- Can you write code from scratch (not just run provided code)?
+- Can you modify methods for new contexts?
+- Can you evaluate when methods are appropriate?
+
+If yes to all four, you've mastered it. If not, keep exploring.
+
+## Technical Setup
+
+### Required Software
+
+**R** (version 4.0 or later):
+
+- Download from [https://cran.r-project.org/](https://cran.r-project.org/)
+- Free and open-source
+
+**RStudio** (recommended but not required):
+
+- Download from [https://posit.co/downloads/](https://posit.co/downloads/)
+- Makes R much easier to use
+- Alternatives: VS Code, Jupyter, command line
+
+**Quarto** (if you want to render documents like the book):
+
+- Download from [https://quarto.org/](https://quarto.org/)
+- Integrates with RStudio
+
+### Required R Packages
+
+Install with:
+
+```{r, eval=FALSE}
+install.packages(c(
+  "tidyverse",      # Data manipulation and visualization
+  "here",           # File path management
+  "knitr",          # Document generation
+  "broom",          # Tidy model outputs
+  "estimatr",       # Robust SEs and other estimators
+  "DeclareDesign",  # Research design simulation
+  "optmatch",       # Optimal matching
+  "RItools",        # Randomization inference tools
+  "coin",           # Conditional inference
+  "boot",           # Bootstrap methods
+  "sandwich",       # Robust covariance matrices
+  "lmtest"          # Linear model testing
+))
+```
+
+### Downloading Data
+
+All data files are available at:
+
+**https://github.com/[your-repo]/statistics-textbook/data**
+
+You can:
+
+1. Clone the entire repository
+2. Download individual data files
+3. Load some directly from R using URLs
+
+### Getting Help
+
+If you encounter problems:
+
+1. **Check the FAQ** (Appendix X)
+2. **Search existing issues** on GitHub
+3. **Post a new issue** with:
+   - What you tried
+   - What happened
+   - What you expected
+   - Your R version and OS
+   - A minimal reproducible example
+
+## Accessibility
+
+We strive to make this book accessible to all learners. If you encounter barriers:
+
+- **Vision**: All figures include alt text. Code can be enlarged in RStudio.
+- **Color**: Plots avoid relying solely on color to convey information.
+- **Mathematics**: Key equations are explained in words, not just symbols.
+- **Language**: We avoid jargon when possible and define technical terms.
+
+If you need accommodations not currently provided, please contact us.
+
+## License and Sharing
+
+This book is licensed under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0**.
+
+You can:
+
+- Share it freely
+- Adapt it for your own teaching
+- Create derivative works
+
+You must:
+
+- Give credit
+- Use the same license
+- Not use commercially without permission
+
+All code is licensed under MIT License (use freely, even commercially).
+
+## Contributing
+
+Found a typo? Have a better explanation? Created a great extension exercise?
+
+We welcome contributions:
+
+1. Fork the repository
+2. Make your changes
+3. Submit a pull request
+
+Even small contributions (typo fixes, clarifications) are valuable.
+
+---
+
+Now that you know how to use the book, let's begin exploring statistics!

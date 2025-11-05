@@ -1,0 +1,9 @@
+---
+title: "Simple Stratification"
+---
+
+# Coming Soon
+
+This chapter will explore basic stratification techniques.
+
+*Content to be added from course materials*

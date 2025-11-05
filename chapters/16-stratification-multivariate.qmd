@@ -1,0 +1,9 @@
+---
+title: "Multivariate Stratification and Matching"
+---
+
+# Coming Soon
+
+This chapter will explore advanced stratification and matching.
+
+*Content to be added from course materials*

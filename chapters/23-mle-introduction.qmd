@@ -1,0 +1,9 @@
+---
+title: "Introduction to Maximum Likelihood"
+---
+
+# Coming Soon
+
+This chapter will explore maximum likelihood estimation.
+
+*Content to be added from course materials*

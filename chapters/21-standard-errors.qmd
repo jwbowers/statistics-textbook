@@ -1,0 +1,9 @@
+---
+title: "Standard Errors"
+---
+
+# Coming Soon
+
+This chapter will explore calculating and interpreting standard errors.
+
+*Content to be added from course materials*

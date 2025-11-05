@@ -1,0 +1,9 @@
+---
+title: "Logit, Probit, and Poisson Models"
+---
+
+# Coming Soon
+
+This chapter will explore generalized linear models.
+
+*Content to be added from course materials*

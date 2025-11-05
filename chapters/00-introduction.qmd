@@ -1,0 +1,329 @@
+# Introduction: Why Learn Statistics This Way? {#sec-intro}
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+# Set default chunk options
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center",
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+## The Problem with Traditional Statistics Teaching
+
+Let me tell you a story that might sound familiar.
+
+A graduate student—let's call her Maria—takes a required statistics course. She attends lectures where the professor writes Greek letters on the board and derives formulas. She memorizes that β₁ is the slope, that p < 0.05 means "statistically significant," that R² measures "goodness of fit." She completes problem sets by plugging numbers into formulas. She passes the exams.
+
+Two years later, Maria is analyzing data for her dissertation. She knows she should "control for" confounding variables, but she's not sure what that actually *does*. She runs a regression and gets p = 0.04. Is that good? Should she add more control variables? She tries adding them and now p = 0.09. Should she keep them? Remove them? She's heard she should "check assumptions" but doesn't really know how to assess whether violations matter for *her* specific analysis.
+
+Maria knows *what* to do (mechanically) but not *why* to do it, *when* to do it, or *how to evaluate* whether what she did makes sense.
+
+**This book aims to solve Maria's problem.**
+
+## A Different Approach: Discovery Before Theory
+
+### The Traditional Sequence
+
+Most statistics courses follow this pattern:
+
+1. **Theorem**: Here is a mathematical result
+2. **Proof**: Here is why it's true
+3. **Example**: Here is how to apply it
+4. **Exercise**: Now you try
+
+This works well for mathematics courses training future mathematicians. But most students of statistics are not becoming mathematical statisticians. They're becoming empirical researchers who need to:
+
+- Choose appropriate methods for messy real-world data
+- Justify their choices to skeptical audiences
+- Evaluate whether their methods actually work in their context
+- Keep learning as new methods emerge
+
+### The Exploration-Based Sequence
+
+This book follows a different pattern:
+
+1. **Challenge**: Here is a real scenario with data and questions
+2. **Exploration**: Investigate using code, visualization, simulation
+3. **Discovery**: What patterns emerge? What works? What doesn't?
+4. **Discussion**: Why does it work (or not)? When should we use it?
+5. **Formalization**: Here's the theory that explains what we discovered
+6. **Evaluation**: How do we know if it's working for our specific case?
+
+For example, instead of:
+
+> **Definition**: The mean is Σxᵢ/n.
+> **Theorem**: The sample mean is an unbiased estimator of the population mean.
+> **Example**: Calculate the mean of these five numbers.
+
+We ask:
+
+> Your friend at the UN wants to summarize civic engagement in the UK using a "single number" for hours spent helping others. What number should she use? Why? How do you even decide what makes a number a "good" summary?
+
+Then we explore: What if we use different summaries (mean, median, trimmed mean, M-estimator)? How do they differ? When does one mislead? We simulate data with outliers and see what happens. We discover that the mean is pulled by extreme values while the median is resistant. We learn that "best" depends on our purpose.
+
+**Only then** do we formalize: "Here's why the median is the value that minimizes the sum of absolute deviations..."
+
+## The Pedagogical Philosophy
+
+This approach rests on several principles:
+
+### 1. Understanding Requires Doing
+
+You cannot understand statistics by watching someone else do statistics, any more than you can learn to cook by watching cooking shows. You must:
+
+- Write code (and debug it when it fails)
+- Manipulate data (and discover its quirks)
+- Make plots (and refine them until they communicate clearly)
+- Run simulations (and interpret the results)
+
+As the mathematician Paul Halmos wrote: "The only way to learn mathematics is to do mathematics."
+
+### 2. Questions Drive Learning
+
+In the banking model of education (Freire's term), the teacher deposits knowledge into passive students. But learning is not passive reception—it's active construction.
+
+You learn most when you:
+
+- Ask your own questions ("Why did this fail?")
+- Confront genuine puzzles ("These two methods give different answers—which should I trust?")
+- Face authentic problems ("How do I know if I've adjusted enough for confounders?")
+
+This book provides scenarios and explorations designed to raise good questions. Class discussions (or study group discussions) then deepen understanding.
+
+### 3. Judgment Requires Evaluation
+
+Statistics is not a cookbook. You cannot just follow recipes blindly. Every analysis requires dozens of decisions:
+
+- Which summary statistic?
+- Which model?
+- Which covariates to adjust for?
+- Which standard errors?
+- Which diagnostic plots?
+
+Traditional courses teach you *what* statisticians typically do. This course teaches you *how to evaluate* what you should do in your specific context.
+
+The key tool: **simulation**.
+
+If you can simulate data where you *know* the truth, you can assess whether your method recovers that truth. You can check:
+
+- Is my estimator unbiased?
+- Does my test have the false positive rate it claims?
+- Does my confidence interval have nominal coverage?
+
+### 4. Skills and Concepts Are Inseparable
+
+Many statistics PhD programs teach concepts through mathematical proof. Students learn to manipulate integrals and prove theorems. The skills are mathematical, and the concepts emerge from the mathematics.
+
+But most social scientists don't have (or need) advanced calculus. So how do we make concepts concrete?
+
+**Answer**: Through computational skills.
+
+R is a *language for expressing statistical ideas*. When you write code to:
+
+- Calculate a mean by hand (`sum(x)/length(x)`)
+- Generate a randomization distribution (`replicate(1000, mean(sample(y))`)
+- Simulate an estimator's bias (`mean(estimates) - true_value`)
+
+You are not just "using software"—you are *thinking statistically* using a different language than mathematics.
+
+Code makes concepts concrete in the same way that mathematical proofs do, but it's often more accessible and more directly connected to data analysis practice.
+
+## What This Means for How You'll Use This Book
+
+### Before Class (or Before Moving to the Next Chapter)
+
+1. **Read the scenario** at the start of each chapter
+2. **Work through the exploration** code
+   - Run every line yourself
+   - When you don't understand something, try changing it to see what happens
+   - When code breaks, figure out why (this is where deep learning happens)
+3. **Answer the questions** posed in the exploration
+4. **Write down your own questions** that arise
+5. **Skim the recommended readings** (different perspectives help)
+
+### During Class (or Discussion Group)
+
+1. **Share your questions** from the exploration
+2. **Discuss alternative approaches** people tried
+3. **Debate conceptual puzzles** ("What does 'controlling for' actually do?")
+4. **Formalize insights** with guidance from instructor/readings
+5. **Connect to broader themes** in statistics and research design
+
+### After Class
+
+1. **Revisit the exploration** with new understanding
+2. **Extend it** to your own research questions/data
+3. **Practice** the core skills (simulation, visualization, evaluation)
+4. **Read more deeply** on topics that intrigued you
+
+## Three Organizing Themes
+
+Throughout the book, three themes recur:
+
+### Theme 1: Description, Inference, and Causation
+
+Statistics serves three purposes:
+
+1. **Description**: Summarizing what we observe
+   - "The mean income is $50,000"
+   - "Education and income are positively correlated"
+
+2. **Inference**: Learning about what we don't observe
+   - "The population mean is probably between $45,000 and $55,000" (sampling)
+   - "The treatment effect is probably positive" (experiments)
+
+3. **Causal Inference**: Claiming X causes Y
+   - "Job training increases earnings"
+   - "Campaign ads change vote choice"
+
+Each requires different justifications. We'll be very careful about distinguishing them.
+
+### Theme 2: Design-Based vs. Model-Based Inference
+
+There are two main modes of statistical inference:
+
+**Design-based**: Inference justified by randomization (experiments) or sampling design (surveys)
+
+- Repeat the random assignment → randomization distribution → p-values, CIs
+- Repeat the random sampling → sampling distribution → standard errors
+
+**Model-based**: Inference justified by modeling the data-generating process
+
+- Assume Y ~ Normal(μ, σ²) → likelihood function → MLEs, Wald tests
+- Assume Y|X ~ Bernoulli(logit⁻¹(Xβ)) → logistic regression
+
+We start with design-based inference because it's conceptually clearer, then connect to model-based approaches.
+
+### Theme 3: Operating Characteristics and Diagnostics
+
+How do you know if a statistical procedure is good?
+
+**Answer**: Check its **operating characteristics**
+
+- Estimators: bias, precision (variance/MSE), consistency
+- Tests: false positive rate (size), power
+- Confidence intervals: coverage
+
+How do you check operating characteristics?
+
+**Answer**: **Simulation** (when you control the data-generating process) or **diagnostics** (with real data)
+
+This theme appears in every chapter. We constantly ask: "How would I know if this method is working well for my specific analysis?"
+
+## A Roadmap of the Book
+
+```{r roadmap, echo=FALSE, fig.cap="The structure of the book", out.width="100%"}
+# This would be a nice figure showing the book's organization
+# For now, we'll create a simple text representation
+```
+
+**Part I**: We describe data—first in one dimension (What's a good summary of location? Of spread?), then in two dimensions (How do we fit lines? Curves? When should we?).
+
+**Part II**: We introduce statistical inference through estimation and testing, distinguishing inference to counterfactuals (causal inference) from inference to populations (sampling) from inference to models (MLE).
+
+**Part III**: We tackle the crucial problem of adjustment—"controlling for" confounders. We see that regression-based adjustment is problematic and explore stratification-based alternatives.
+
+**Part IV**: We connect design-based inference to large-sample theory (CLT, standard errors, Normal approximations).
+
+**Part V**: We introduce model-based inference (maximum likelihood) and generalized linear models (logit, probit, Poisson).
+
+## What You'll Be Able to Do
+
+By the end of this book, you will be able to:
+
+1. **Explain** in your own words what a p-value means, what makes an estimator unbiased, what "controlling for" does
+
+2. **Choose** appropriate methods for your data and research question, and justify your choices
+
+3. **Evaluate** whether your methods are working (via simulation, diagnostics, sensitivity analysis)
+
+4. **Communicate** your statistical reasoning to both specialists and non-specialists
+
+5. **Keep learning** statistics throughout your career, as new methods emerge
+
+Most importantly, when someone asks "Why did you do it that way?", you won't just say "That's what everyone does" or "The software did it automatically."
+
+You'll be able to explain:
+
+- What you were trying to accomplish
+- Why your approach makes sense for your context
+- How you know it's working
+- What assumptions you're making and why they're reasonable (or what happens if they're not)
+
+**That's statistical thinking.**
+
+Let's begin.
+
+## How to Get Help When You're Stuck
+
+Learning statistics this way means you'll get stuck. Often. That's not a bug, it's a feature. Getting un-stuck is where deep learning happens.
+
+When you're stuck on **code**:
+
+1. Read the error message carefully (they're often informative)
+2. Search the web for the error message
+3. Use `?function_name` to read help files
+4. Try a minimal example to isolate the problem
+5. Ask an AI assistant (but make sure you understand the answer)
+
+When you're stuck on **concepts**:
+
+1. Try explaining it out loud (or in writing) to yourself
+2. Draw a picture or diagram
+3. Simulate a simple example where you know the answer
+4. Read alternative explanations (different textbooks, blog posts, papers)
+5. Discuss with classmates or study group
+6. Ask your instructor/TA, coming with specific questions
+
+When you're stuck on **why** a method works or whether to use it:
+
+1. Simulate data where you know the truth
+2. Check operating characteristics
+3. Read about the method's assumptions and derivation
+4. Look for papers that evaluate the method via simulation
+5. Ask: "What problem is this method trying to solve? Does that match my problem?"
+
+**The key**: Don't give up too quickly, but also don't spin your wheels for hours. If you've been stuck for 30 minutes, seek help.
+
+## A Note on Notation and Terminology
+
+Different textbooks (and different fields) use different notation and terminology. This can be confusing.
+
+For example, "standard error" sometimes means:
+
+- The standard deviation of an estimator's sampling distribution (what we usually mean)
+- The standard deviation of the residuals in a regression (what Excel sometimes reports)
+
+And β₁ might mean:
+
+- The true (population) slope parameter
+- The estimated slope from your data
+- The coefficient on the first predictor variable
+
+We'll try to be consistent and clear. When notation varies across fields, I'll note it. When terminology is ambiguous, I'll specify what we mean.
+
+In general:
+
+- **Greek letters** (β, μ, σ) denote **unknown parameters** we're trying to learn about
+- **Roman letters** ($b$, $\bar{x}$, $s$) denote **statistics** we calculate from data
+- **Hats** ($\hat{\beta}$, $\hat{\mu}$) denote **estimates** of parameters
+
+But exceptions abound. Context is key.
+
+## Let's Begin
+
+Statistics is hard. But it's also fascinating. You're about to embark on a journey that will change how you see data, research, and arguments about the world.
+
+You'll develop skills that are in high demand. More importantly, you'll develop **judgment**—the ability to reason well under uncertainty, to evaluate claims critically, and to communicate quantitative findings clearly.
+
+The journey starts with a simple question: What's a good way to summarize data in one dimension?
+
+Let's find out.

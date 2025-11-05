@@ -1,0 +1,67 @@
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+## Additional Resources
+
+### Textbooks Referenced Throughout
+
+This book draws on insights from many excellent statistics textbooks. Here are some particularly recommended ones:
+
+**For Conceptual Understanding:**
+
+- Berk, R. A. (2004). *Regression Analysis: A Constructive Critique*. Sage Publications.
+- Rosenbaum, P. R. (2017). *Observation and Experiment: An Introduction to Causal Inference*. Harvard University Press.
+- Gelman, A., & Hill, J. (2007). *Data Analysis Using Regression and Multilevel/Hierarchical Models*. Cambridge University Press.
+
+**For Applied Statistics:**
+
+- Fox, J. (2016). *Applied Regression Analysis and Generalized Linear Models* (3rd ed.). Sage Publications.
+- Gerber, A. S., & Green, D. P. (2012). *Field Experiments: Design, Analysis, and Interpretation*. W.W. Norton.
+
+**For Statistical Theory:**
+
+- Cox, D. R. (2006). *Principles of Statistical Inference*. Cambridge University Press.
+- Rice, J. A. (2007). *Mathematical Statistics and Data Analysis* (3rd ed.). Duxbury Press.
+
+**For Robust Methods:**
+
+- Wilcox, R. R. (2012). *Introduction to Robust Estimation and Hypothesis Testing* (3rd ed.). Academic Press.
+
+**For Causal Inference:**
+
+- Imbens, G. W., & Rubin, D. B. (2015). *Causal Inference for Statistics, Social, and Biomedical Sciences*. Cambridge University Press.
+- Rosenbaum, P. R. (2010). *Design of Observational Studies*. Springer.
+- Dunning, T. (2012). *Natural Experiments in the Social Sciences*. Cambridge University Press.
+
+### Online Resources
+
+**R Programming:**
+
+- [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham and Garrett Grolemund
+- [Advanced R](https://adv-r.hadley.nz/) by Hadley Wickham
+
+**Statistical Methods:**
+
+- [EGAP Methods Guides](https://egap.org/methods-guides/)
+- [Cross Validated](https://stats.stackexchange.com/) (Q&A site)
+- [Statistical Modeling, Causal Inference, and Social Science](https://statmodeling.stat.columbia.edu/) (Andrew Gelman's blog)
+
+**Causal Inference:**
+
+- [The Book of Why](http://bayes.cs.ucla.edu/WHY/) by Judea Pearl
+- [Causal Inference: The Mixtape](https://mixtape.scunning.com/) by Scott Cunningham
+
+### Papers Frequently Cited
+
+Key methodological papers that shaped this book's approach:
+
+- Fisher, R. A. (1935). *The Design of Experiments*. Oliver and Boyd.
+- Neyman, J. (1923). On the application of probability theory to agricultural experiments.
+- Rubin, D. B. (1974). Estimating causal effects of treatments in randomized and nonrandomized studies.
+- Rosenbaum, P. R., & Rubin, D. B. (1983). The central role of the propensity score in observational studies for causal effects.
+- Hansen, B. B. (2004). Full matching in an observational study of coaching for the SAT.
+- Abadie, A., & Imbens, G. W. (2006). Large sample properties of matching estimators for average treatment effects.
+
+(Full references for all cited works appear above in the automatically generated bibliography.)

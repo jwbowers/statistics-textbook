@@ -1,0 +1,9 @@
+---
+title: "R Programming Basics"
+---
+
+# Coming Soon
+
+This appendix will cover fundamental R programming skills.
+
+*Content to be added from course materials*

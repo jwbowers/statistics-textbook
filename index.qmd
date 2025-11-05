@@ -1,0 +1,120 @@
+# Preface {.unnumbered}
+
+> "The only way to learn mathematics is to do mathematics." — Paul Halmos
+
+> "Education is not the filling of a pail, but the lighting of a fire." — William Butler Yeats
+
+## About This Book
+
+This is not a traditional statistics textbook. You will not find theorem-proof-example sequences here. Instead, you will find **explorations**—challenging, data-rich scenarios that invite you to discover statistical concepts through active engagement, simulation, and critical thinking.
+
+This book emerged from over a decade of teaching graduate students in political science and other social sciences using a **flipped classroom** approach. Rather than lecturing first and then assigning problems, I ask students to *explore* topics before class—guided by readings, data, code, and questions—and then come to class full of questions to discuss.
+
+The approach draws inspiration from the pedagogical philosophies of:
+
+- **Paulo Freire**, who emphasized dialogue and critical consciousness over the "banking model" of education
+- **Maria Montessori**, who championed hands-on, self-directed learning
+- **John Dewey**, who advocated for learning by doing and reflective inquiry
+
+But it is also grounded in the deep statistical wisdom of Paul Rosenbaum, David Cox, Andrew Gelman, and others who teach us that statistics is not about memorizing procedures, but about **reasoning under uncertainty**.
+
+## Who This Book Is For
+
+This book is designed for graduate students and advanced undergraduates in the social sciences who want to:
+
+- **Understand** statistics deeply, not just mechanically apply procedures
+- **Evaluate** their own statistical choices and those of others
+- **Justify** their analytical decisions to skeptical audiences
+- **Learn** how to keep learning statistics throughout their careers
+
+You should have:
+
+- Curiosity and persistence
+- Willingness to make mistakes and learn from them
+- Basic familiarity with high school mathematics
+- Access to R (the statistical programming language)
+
+You do NOT need:
+
+- Prior experience with statistics (though it helps)
+- Advanced mathematics (calculus and linear algebra are explained as needed)
+- Programming expertise (we learn R as we go)
+
+## How This Book Works
+
+Each chapter typically includes:
+
+1. **A Scenario**: Often involving fictional characters facing real statistical challenges
+2. **Explorations**: Code, data, and questions for you to work through
+3. **Key Concepts**: Statistical ideas emerging from the exploration
+4. **Discussion Questions**: To deepen understanding and connect to broader issues
+5. **Readings**: Recommended sources for multiple perspectives
+6. **Extensions**: Optional advanced topics and connections
+
+The pedagogical sequence is:
+
+```
+EXPLORE → QUESTION → DISCUSS → UNDERSTAND → APPLY → EVALUATE
+```
+
+Not:
+
+```
+LECTURE → MEMORIZE → APPLY → TEST
+```
+
+## Three Organizing Principles
+
+### 1. Three Cheers for Description
+
+Before we can infer about the unseen, we must describe the seen. What makes a good description? How do we summarize location? Spread? Relationships? When is a line a good summary? When is it misleading?
+
+### 2. Two Cheers for Statistical Inference
+
+Statistical inference lets us reason about what we cannot observe: counterfactual causal effects, population parameters, data-generating processes. But inference requires **justification**. Why should we believe this p-value? This confidence interval? This standard error?
+
+### 3. One Cheer for Causal Inference
+
+Causal inference is powerful but perilous. Randomization helps, but most research is observational. How do we "control for" confounders? What does "controlling for" even mean? When is adjustment adequate?
+
+## The Journey Ahead
+
+We begin with **description**—learning to summarize data in one dimension, then two, then many. We practice fitting lines, smoothing curves, and visualizing relationships.
+
+Then we tackle **statistical inference**—learning what it means to estimate an unobserved quantity, test a hypothesis, or construct a confidence interval. We distinguish inference to counterfactuals, populations, and data models.
+
+Next comes **adjustment**—the crucial but often misunderstood practice of "controlling for" confounding variables. We explore both parametric (regression-based) and non-parametric (stratification-based) approaches.
+
+Finally, we connect **design-based** inference (randomization, sampling) to **model-based** inference (maximum likelihood, Bayesian methods) and large-sample theory.
+
+Throughout, we emphasize **simulation** as a tool for understanding. If you can simulate it, you can understand it. If you can assess its operating characteristics, you can judge whether to use it.
+
+## Acknowledgments
+
+This book would not exist without:
+
+- The hundreds of students who explored these materials, asked hard questions, and helped refine the pedagogy
+- The methods preceptors who ran sections, held office hours, and provided invaluable feedback
+- The scholars whose work I cite liberally throughout—especially Paul Rosenbaum, whose writing shows that statistics can be both rigorous and beautiful
+- My colleagues who shared data, ideas, and encouragement
+
+## A Note on Software and Reproducibility
+
+All code in this book uses R and is designed to be reproducible. You can download the source code, data, and rendered versions at:
+
+**https://github.com/[your-repo]/statistics-textbook**
+
+I encourage you to:
+
+- Run every line of code yourself
+- Modify the code to see what changes
+- Simulate your own examples
+- Share your explorations with others
+
+Statistics is not a spectator sport. Let's begin.
+
+---
+
+Jake Bowers
+Urbana, Illinois
+`r format(Sys.Date(), "%B %Y")`

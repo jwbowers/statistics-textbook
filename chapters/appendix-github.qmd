@@ -1,0 +1,9 @@
+---
+title: "Using GitHub for Reproducible Research"
+---
+
+# Coming Soon
+
+This appendix will cover version control and collaboration with GitHub.
+
+*Content to be added from course materials*

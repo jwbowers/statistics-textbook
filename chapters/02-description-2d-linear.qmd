@@ -1,0 +1,16 @@
+---
+title: "Describing Bivariate Relationships: Linear Patterns"
+---
+
+# Coming Soon
+
+This chapter will explore linear relationships between two variables.
+
+::: {.callout-note}
+## Exploration Goals
+- Understand correlation and covariance
+- Visualize linear relationships
+- Interpret slopes and intercepts
+:::
+
+*Content to be added from course materials*

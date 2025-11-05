@@ -1,0 +1,223 @@
+---
+title: 'Exploration 1: Description in One-Dimension'
+author: 'Jake Bowers'
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+execute:
+  eval: false
+  echo: true
+format:
+  html:
+    code-fold: true
+    method: mathjax
+    url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  pdf:
+    number-sections: true
+    colorlinks: true
+    cite-method: biblatex
+    keep-tex: true
+    monofontoptions: "Scale=0.7"
+    include-in-header:
+      text: |
+        \usepackage{bm}
+        \usepackage{tikz}
+        \usepackage{tikz-cd}
+        \usetikzlibrary{arrows,automata,positioning,trees,decorations.markings}
+        \usepackage{tikz-qtree}
+        \usepackage{amsmath, booktabs, caption, longtable,listings,fancyvrb,fvextra}
+        \DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+        \newfontfamily\grouptwofont[Ligatures=TeX]{Fira Sans}
+fontsize: 10pt
+geometry: margin=1in
+graphics: yes
+# bibliography: classbib.bib  # Using book-level references.bib instead
+biblio-style: "authoryear-comp,natbib"
+---
+
+<!-- \input{mytexsymbols} -->
+
+```{r setup, echo=FALSE, results=FALSE, include=FALSE, cache=FALSE}
+# Note: qmd_setup.R will be created when populating from course materials
+# library(here)
+# source(here("qmd_setup.R"))
+library(dplyr)
+# library(robustbase)
+# library(psych)
+# library(robustHD)
+```
+
+
+This document is called an "exploration" rather than a "problem set" or
+"homework" because the point is to use the discussion, code, results, questions
+here to learn something new, practice thinking about statistical concepts,
+data, and code and to raise new questions that you'd like to discuss in class.
+Some of the code and output might be visible in a pdf file and some might not.
+The code has errors that you will need to fix and understand. You should work
+with the source document itself as you answer the questions posed by me (the
+author) as well as the questions posed by fictional actors who I invent in the
+hopes of making these explorations fun. I also expect you to explain the code,
+and otherwise explore the data and the questions arising from their discussion.
+
+I expect that:
+- you will make an attempt to answer every question posed here
+- you will read the pieces that are recommended. You should be able to answer
+  questions about what the reading said.
+- you will make an attempt to explain to yourself every line of code written in
+  this document, 
+- you will run all of the code yourself, 
+- that you will write some new code of your own as you work on answering the
+  questions. (For example, you might look for alternative ways to summarize
+  "location" or "spread" other than those used here. You might try different
+  arguments to the same functions used here. Or you might find new functions or
+  write your own. Or you might try using these functions on different data. You
+  might have conversations with an AI to help you understand what is going on
+  here and to get suggestions for alternatives with their associated advantages
+  and disadvantages.)
+
+Useful reading about description:
+
+ - @wilcox2012introduction, Chap 1--3
+ - @kaplan2012ism, Chap 2--3
+
+\bigskip
+
+"Brexit! UKIP! ISIL! Taliban! COVID!" When your old friend calls, she seems to
+be yelling. Once she calms down, she explains: "I am in charge of Improving
+Civic Society programs for the United Nations, and have been asked to step in
+to help out at the UK Office of Social Capital." After you congratulate her on
+what appears to be a promotion she continues. "The thing is that over here in
+the UK, they are really big on numbers. I asked my staff for a simple report on
+the status of civic society in the UK before all of the recent unrest happened
+there, say, in 2005, before the London Bombings. They responded with numbers.
+When I asked them to explain, I found their desks empty, their chairs knocked
+over, their computers smashed, but their coffee cups still warm and untouched."
+You ask her about her own safety and she responds. "This is all within
+operational parameters. No worries. My problem is that I need to report to the
+high command, I mean, my manager, and I don't know what the right answer is.
+Now I don't even have numbers. Please help. Can we hop on a Zoom call?"
+
+She does not enable video in the Zoom call. However, she begins sending you
+some code. "Here is what I have in terms of output. Can you explain to me what
+is going on with each line of code? I mean shouldn't the total number of hours
+people spend helping each other be something other than `NA`? How do you figure
+out what is going on when you make errors or find something confusing in `R`?"
+
+
+```{r}
+load(url("http://jakebowers.org/Data/ho05.rda"))
+table(ho05$postbomb, useNA = "ifany")
+wrkdat <- ho05 %>% filter(postbomb == 0)
+sum(wrkdat$hlphrs)
+```
+
+She continues, "And then I have this from a previous meeting where they talked
+about `codebooks` but I don't think these were the ordinary kind of encrypted
+communication behind enemy lines it seems like a weird codebook to me."
+
+```
+### CODEBOOK
+postbomb: 1=interviewed after the bombing, 0=interviewed before the bombing
+
+grphrs: 6.1.1 Which of the following groups, clubs or organisations
+  have you been involved with during the last 12 months? That's anything
+  you've taken part in, supported, or that you've helped in any way, either
+  on your own or with others. Please exclude giving money and anything that
+  was a requirement of your job.
+
+  6.1.2 In the last 12 months have you given unpaid help to any groups, clubs or
+  organisations in any of the following ways?
+
+  6.1.5 Approximately how many hours have you spent helping this/these group(s),
+  club(s) or organisation(s) in the past 4 weeks?
+
+infhrs: In the last 12 months have you done any of the following things,
+  unpaid, for someone who was not a relative?
+
+  This is any unpaid help you, as an individual, may have given to other people,
+  that is apart from any help given through a group, club or organisation. This
+  could be help for a friend, neighbour or someone else but not a relative.
+
+  6.4.4 Now just thinking about the past 4 weeks. Approximately how many hours
+  have you spent doing this kind of thing/these kind of things in the past 4
+  weeks?
+
+hlphrs: grphrs+infhrs
+```
+
+She asks, "What is the best way describe how civic life was going before the
+bombings in 2005 (let alone before all of the other disruptions occurred in the
+UK)? What is the right answer?"
+
+Later, after you had worked on this a bit she calls back, "Hey. Thanks so much
+for helping! I just found this code and thought it might be useful although it
+has some errors. What do you think? Can you tell me what this means? Does it
+help me get the right answer about how much time people in the UK were devoting
+to helping each other and/or supporting groups? Why are there so many ways to
+descibe a single variable anyway? What is the point? Which approaches do you
+prefer (from those below and others)? Also, are there any plots that would help
+me tell the right story about this variable? What might they be? What do they
+look like?"
+
+```{r deltaforce1robustdescription, results='hide'}
+mean(wrkdat$hlphrs, trim = .1, na.rm = TRUE)
+hlp_vec <- unlist(wrkdat %>% dplyr::select(hlphrs) %>% filter(!is.na(hlphrs)))
+mean(hlp_vec, trim = .1, na.rm = FALSE)
+winsor.mean(hlp_vec)
+mean(winsorize(hlp_vec))
+
+one_step_M_est <- function(x) {
+  ## Following Section 2.1 in http://www.psychology.mcmaster.ca/bennett/boot09/rt2.pdf
+  madn <- mad(x, constant = 1.4826) ## 1/1.4826 = .6745
+  M <- (abs(x - median(x)) / madn) > 1.28
+  U <- sum(x > M)
+  L <- sum(x < M)
+  B <- length(x) - U - L
+  n <- length(x)
+  mux <- (1.28 * madn * (U - L) + B) / (n - L - U)
+  return(mux)
+}
+
+least_squares_loss <- function(x, the_var) {
+  ssr <- sum((the_var - x)^2)
+  return(ssr)
+}
+
+onestepMest(hlp_vec)
+huberM_results <- huberM(hlp_vec)
+print(huberM_results$mu)
+print(huberM_results$s)
+
+ls_location <- optimize(
+  f = least_squares_loss,
+  the_var = hlp_vec,
+  interval = range(hlp_vec)
+)
+
+ls_location
+
+l1_loss <- function(x, the_var) {
+  ssr <- sum(abs(the_var - x))
+  return(ssr)
+}
+
+l1_location <- optimize(
+  f = l1_loss,
+  the_var = hlp_vec,
+  interval = range(hlp_vec)
+)
+
+l1_location
+
+fivenum(hlp_vec)
+quantile(hlp_vec, seq(0, 1, .1))
+summary(hlp_vec)
+sd(hlp_vec)
+mad(hlp_vec)
+```
+
+<!-- see also https://dornsife.usc.edu/labs/rwilcox/software/ and WRS:::mest  https://dornsife.usc.edu/assets/sites/239/docs/WRS2.pdf and the MASS library--->
+
+# References
+
+- Rand R Wilcox (2012). Introduction to robust estimation and hypothesistesting. Academic Press, Chap 1–3
+
+- Daniel Kaplan (2012). Statistical Modeling A Fresh Approach. Second. Macalester College, St. Paul, MN: Daniel Kaplan, Chap 2–3

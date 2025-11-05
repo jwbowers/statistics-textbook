@@ -1,0 +1,9 @@
+---
+title: "Simulation Techniques"
+---
+
+# Coming Soon
+
+This appendix will cover simulation methods in statistics.
+
+*Content to be added from course materials*

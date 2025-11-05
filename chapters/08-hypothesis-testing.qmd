@@ -1,0 +1,9 @@
+---
+title: "Hypothesis Testing"
+---
+
+# Coming Soon
+
+This chapter will explore hypothesis testing frameworks.
+
+*Content to be added from course materials*

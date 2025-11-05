@@ -1,0 +1,9 @@
+---
+title: "Matrix Algebra Review"
+---
+
+# Coming Soon
+
+This appendix will cover essential matrix algebra.
+
+*Content to be added from course materials*

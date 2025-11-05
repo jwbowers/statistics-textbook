@@ -1,0 +1,41 @@
+# Quarto
+_book/
+_freeze/
+*.html
+*.pdf
+!index.html
+
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bcf
+*.run.xml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Cache
+*_cache/
+*_files/
+
+/.quarto/
+**/*.quarto_ipynb

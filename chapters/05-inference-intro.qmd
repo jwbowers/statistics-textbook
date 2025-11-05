@@ -1,0 +1,9 @@
+---
+title: "Introduction to Statistical Inference"
+---
+
+# Coming Soon
+
+This chapter will explore the logic of statistical inference.
+
+*Content to be added from course materials*

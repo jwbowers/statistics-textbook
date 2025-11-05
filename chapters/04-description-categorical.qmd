@@ -1,0 +1,9 @@
+---
+title: "Describing Categorical Relationships"
+---
+
+# Coming Soon
+
+This chapter will explore categorical data and contingency tables.
+
+*Content to be added from course materials*

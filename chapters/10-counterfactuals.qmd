@@ -1,0 +1,9 @@
+---
+title: "Counterfactuals and Causal Reasoning"
+---
+
+# Coming Soon
+
+This chapter will explore counterfactual thinking in causal inference.
+
+*Content to be added from course materials*

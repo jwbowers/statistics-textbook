@@ -1,0 +1,9 @@
+---
+title: "Randomization and Experimental Design"
+---
+
+# Coming Soon
+
+This chapter will explore randomized experiments.
+
+*Content to be added from course materials*

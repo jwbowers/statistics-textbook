@@ -1,0 +1,135 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Statistical Thinking Through Exploration"
+  subtitle: "A Discovery-Based Approach to Applied Statistics"
+  author: "Jake Bowers"
+  date: today
+
+  chapters:
+    - index.qmd
+    - part: "Part I: The Pedagogy of Statistical Discovery"
+      chapters:
+        - chapters/00-introduction.qmd
+        - chapters/00-how-to-use.qmd
+
+    - part: "Part II: Three Cheers for Description"
+      chapters:
+        - chapters/01-description-1d.qmd
+        - chapters/02-description-2d-linear.qmd
+        - chapters/03-description-2d-nonlinear.qmd
+        - chapters/04-description-categorical.qmd
+
+    - part: "Part III: Two Cheers for Statistical Inference"
+      chapters:
+        - chapters/05-inference-intro.qmd
+        - chapters/06-estimation-causal.qmd
+        - chapters/07-estimation-population.qmd
+        - chapters/08-hypothesis-testing.qmd
+        - chapters/09-confidence-intervals.qmd
+
+    - part: "Part IV: One Cheer for Causal Inference"
+      chapters:
+        - chapters/10-counterfactuals.qmd
+        - chapters/11-randomization.qmd
+        - chapters/12-potential-outcomes.qmd
+
+    - part: "Part V: Adjustment - Controlling For What?"
+      chapters:
+        - chapters/13-why-adjust.qmd
+        - chapters/14-covariance-adjustment.qmd
+        - chapters/15-stratification-simple.qmd
+        - chapters/16-stratification-multivariate.qmd
+        - chapters/17-stratification-nonbipartite.qmd
+        - chapters/18-stratification-longitudinal.qmd
+        - chapters/19-sensitivity-analysis.qmd
+
+    - part: "Part VI: Large Sample Theory and Connections"
+      chapters:
+        - chapters/20-clt-and-approximations.qmd
+        - chapters/21-standard-errors.qmd
+        - chapters/22-robust-clustered-ses.qmd
+
+    - part: "Part VII: Model-Based Inference"
+      chapters:
+        - chapters/23-mle-introduction.qmd
+        - chapters/24-mle-linear-models.qmd
+        - chapters/25-logit-probit-poisson.qmd
+        - chapters/26-model-selection.qmd
+
+    - part: "Appendices"
+      chapters:
+        - chapters/appendix-r-basics.qmd
+        - chapters/appendix-matrix-algebra.qmd
+        - chapters/appendix-simulation.qmd
+        - chapters/appendix-github.qmd
+
+    - references.qmd
+
+  appendices:
+    - chapters/appendix-r-basics.qmd
+    - chapters/appendix-matrix-algebra.qmd
+    - chapters/appendix-simulation.qmd
+    - chapters/appendix-github.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - css/custom.scss
+    code-fold: show
+    code-tools: true
+    code-link: true
+    number-sections: true
+    number-depth: 3
+    toc: true
+    toc-depth: 3
+    toc-expand: 2
+    link-external-icon: true
+    link-external-newwindow: true
+    citations-hover: true
+    footnotes-hover: true
+    crossrefs-hover: true
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    title-block-banner: true
+
+  pdf:
+    documentclass: book
+    classoption: [oneside, openany]
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    linestretch: 1.2
+    number-sections: true
+    number-depth: 3
+    toc: true
+    toc-depth: 3
+    lof: false
+    lot: false
+    colorlinks: true
+    linkcolor: blue
+    urlcolor: blue
+    citecolor: blue
+    keep-tex: true
+    include-in-header:
+      text: |
+        \usepackage{bm}
+        \usepackage{amsmath}
+        \usepackage{amssymb}
+        \usepackage{booktabs}
+        \usepackage{longtable}
+        \usepackage{tikz}
+        \usepackage{fancyvrb}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},fontsize=\small}
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  cache: true
+  freeze: auto

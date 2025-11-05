@@ -1,0 +1,9 @@
+---
+title: "Covariance Adjustment"
+---
+
+# Coming Soon
+
+This chapter will explore adjustment via covariance methods.
+
+*Content to be added from course materials*

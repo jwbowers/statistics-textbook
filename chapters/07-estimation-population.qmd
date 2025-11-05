@@ -1,0 +1,9 @@
+---
+title: "Estimation in Population Studies"
+---
+
+# Coming Soon
+
+This chapter will explore population parameter estimation.
+
+*Content to be added from course materials*

@@ -1,0 +1,9 @@
+---
+title: "Why Adjust? The Problem of Confounding"
+---
+
+# Coming Soon
+
+This chapter will explore confounding and the need for adjustment.
+
+*Content to be added from course materials*

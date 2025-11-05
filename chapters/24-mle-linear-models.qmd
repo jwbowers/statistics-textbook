@@ -1,0 +1,9 @@
+---
+title: "Maximum Likelihood for Linear Models"
+---
+
+# Coming Soon
+
+This chapter will explore MLE applied to linear models.
+
+*Content to be added from course materials*

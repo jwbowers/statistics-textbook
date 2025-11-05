@@ -1,0 +1,9 @@
+---
+title: "Confidence Intervals"
+---
+
+# Coming Soon
+
+This chapter will explore constructing and interpreting confidence intervals.
+
+*Content to be added from course materials*

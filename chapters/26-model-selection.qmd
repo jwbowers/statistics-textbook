@@ -1,0 +1,9 @@
+---
+title: "Model Selection and Validation"
+---
+
+# Coming Soon
+
+This chapter will explore choosing and validating models.
+
+*Content to be added from course materials*

@@ -1,0 +1,9 @@
+---
+title: "The Central Limit Theorem and Approximations"
+---
+
+# Coming Soon
+
+This chapter will explore the CLT and its applications.
+
+*Content to be added from course materials*
